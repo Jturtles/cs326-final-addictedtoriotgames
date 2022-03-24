@@ -1,0 +1,39 @@
+.form{
+    height: 450px;
+    width: 450px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.logo{
+    position: absolute;
+    top : 1%;
+}
+.signin{ 
+    padding : 85px 100px;
+}
+.email{
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    width: 275px;
+}
+.password{
+    position: absolute;
+    top: 58%;
+    left: 20%;
+    width: 275px;
+}
+.login{
+    position: absolute;
+    top: 80%;
+    left: 38%;
+    background-color: black;
+    color : white;
+    padding: 10px 45px;
+}
