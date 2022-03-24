@@ -15,3 +15,12 @@ Sign Up:
 Login:
 
 ![image](https://user-images.githubusercontent.com/74626828/159830506-273261fd-2683-4088-be09-84b6652829e6.png)
+
+Feed Page:
+
+![image](https://user-images.githubusercontent.com/74626828/159830695-07504d95-5879-49e6-855a-3e1b7610d1f6.png)
+
+Profile:
+
+![image](https://user-images.githubusercontent.com/74626828/159830765-386b42a7-ebe4-4332-865c-f8bb27d0b6d9.png)
+
