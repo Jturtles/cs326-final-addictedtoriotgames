@@ -50,6 +50,8 @@
 }
 #mainpic > * {
     margin: 50px;
+    height: 400px;
+    width: 400px;
 }
 
 #name-email{
