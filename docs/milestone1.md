@@ -1,3 +1,9 @@
+\begingroup
+\fontfamily{ppl}\fontsize{14}{16}\selectfont
+This line uses Garamond font and font size 14.
+\endgroup
+
+
 Part 0: Data Interaction
 1.) Log in with username and password
 2.) Uploading images
