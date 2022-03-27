@@ -32,5 +32,20 @@ https://www.figma.com/file/8hIGjFVlpWx5nicTDb8Y9s/FitOfTheDay?node-id=0%3A1
 
 # Part 2: HTML And CSS
 
+## Sign Up:
+![image](https://user-images.githubusercontent.com/74626828/160052441-454ebe1c-f8e5-43c8-9a60-613f83cebdeb.png)
+
+## Login:
+![image](https://user-images.githubusercontent.com/74626828/160050331-3fcafe62-7f7b-4be8-af1d-a7bf7e1cc912.png)
+
+## Profile:
+![image](https://user-images.githubusercontent.com/74626828/160050370-9ee0b802-3ee5-4435-abbc-37f07a31899b.png)
+
+
+## Feed Page:
+![image](https://user-images.githubusercontent.com/74626828/160055255-f50cdc42-d689-438d-bf34-d450689c1b13.png)
+
+
+
 
 
