@@ -50,7 +50,7 @@ export class UserDatabase {
   }
 
   // UPDATE a user in the database.
-  async updateUser(id, name, email, username, pictures) {
+  async updateUser(id, name, email, username, password) {
     const queryText =
       'UPDATE user SET name = $2, email = $3, username = $4, password = $5 WHERE id = $1 RETURNING *';
     const res = await this.client.query(queryText, [id, name, email, username, password]);
