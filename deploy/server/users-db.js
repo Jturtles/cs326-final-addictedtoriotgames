@@ -35,10 +35,10 @@ export class UserDatabase {
   }
 
   // CREATE a user in the database.
-  async createUser(id, name, email, username, pictures) {
+  async createUser(id, name, email, username, password) {
     const queryText =
-      'INSERT INTO user (id, name, email, username, pictures) VALUES ($1, $2, $3, $4, $5) RETURNING *';
-    const res = await this.client.query(queryText, [id, name, email, username, pictures]);
+      'INSERT INTO user (id, name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+    const res = await this.client.query(queryText, [id, name, email, username, password]);
     return res.rows;
   }
 
@@ -52,8 +52,8 @@ export class UserDatabase {
   // UPDATE a user in the database.
   async updateUser(id, name, email, username, pictures) {
     const queryText =
-      'UPDATE user SET name = $2, email = $3, username = $4, pictures = $5 WHERE id = $1 RETURNING *';
-    const res = await this.client.query(queryText, [id, name, email, username, pictures]);
+      'UPDATE user SET name = $2, email = $3, username = $4, password = $5 WHERE id = $1 RETURNING *';
+    const res = await this.client.query(queryText, [id, name, email, username, password]);
     return res.rows;
   }
 
