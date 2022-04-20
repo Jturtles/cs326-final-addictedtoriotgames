@@ -8,4 +8,5 @@ const password = document.getElementById("password").value;
 
 signup.addEventListener('click', async(e) => {
     const user = await crud.createUser(id, name, email, username, password);
+    window.location.href = "index.html";
 })
