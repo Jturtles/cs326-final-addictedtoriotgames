@@ -1,3 +1,6 @@
+body {
+    background-image: url(../images/minimalist-clothing.jpg);
+}
 .form{
     height: 450px;
     width: 450px;
@@ -6,45 +9,76 @@
     top: 50%;
     left: 50%;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.495);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
 .logo{
-    position: absolute;
-    top : 1%;
+    text-align: center;
+    font-family: Arvo;
+    font-size: 5em;
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.462);
+    animation-name: logo-slidein;
+    animation-duration: 1s;
 }
+@keyframes logo-slidein {
+    0% { font-size: 0px; }
+    100% { font-size: 5em;}
+  }
 .join{ 
-    padding : 80px 130px;
+    color: black;
+    text-align: center;
+    position: relative;
+    font-family: Poppins;
+    font-size: 1em;
+    margin-top: -12px;
+    animation-name: login, login-opacity;
+    animation-duration: 1s, 1s;
+    animation-delay: 1s, 0s;
+}
+@keyframes login {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+@keyframes login-opacity {
+    0% {opacity: 0%;}
+    100% {opacity: 0%;}
 }
 .email{
     position: absolute;
     top: 38%;
     left: 20%;
     width: 275px;
+    font-family: Poppins;
 }
 .name{
     position: absolute;
     top: 48%;
     left: 20%;
     width: 275px;
+    font-family: Poppins;
 }
 .username{
     position: absolute;
     top: 58%;
     left: 20%;
     width: 275px;
+    font-family: Poppins;
 }
 .password{
     position: absolute;
     top: 68%;
     left: 20%;
     width: 275px;
+    font-family: Poppins;
 }
 .signup{
     position: absolute;
+    font-family: Poppins;
     top: 80%;
-    left: 34%;
+    left: 32%;
     background-color: black;
     color : white;
     padding: 10px 45px;
