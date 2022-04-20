@@ -60,7 +60,16 @@ class UserServer {
         res.status(500).send(err);
       }
     });
+
+    this.app.get('user/profile/feed', async (req, res) => {
+      try{
+        res.json("feedPage.html");
+      } catch(err){
+        res.status(500).send(err);
+      }
+    });
   }
+
 
   async initDb() {
     this.db = new UserDatabase(this.dburl);
