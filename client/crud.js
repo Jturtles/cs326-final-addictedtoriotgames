@@ -17,7 +17,7 @@ export async function readUser(id) {
     return data;
 }
 
-export async function updateUser(id, name, email, username, pictures) {
+export async function updateUser(id, name, email, username, password) {
     const response = await fetch(
         `/user/update?id=${id}&name=${name}&email=${email}&username=${username}&password=${password}`,
         {
