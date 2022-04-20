@@ -8,5 +8,5 @@ prof.addEventListener("click", () =>{
 });
 
 signout.addEventListener("click", () =>{
-    window.location.href = "signUp.html";
+    window.location.href = "index.html";
 });
