@@ -7,7 +7,7 @@
 
 # API Representation
 
-![image](https://user-images.githubusercontent.com/74626828/164142145-d7982dba-bc51-4de7-a761-872076c5fe7e.png)
+![image](https://user-images.githubusercontent.com/74626828/164325528-ab8c8907-a27f-464f-b7ee-b2fc36a4dc8e.png)
 
 
 Users are created with a username, first and last names, email, and password at Sign up.
