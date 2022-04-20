@@ -5,6 +5,7 @@ class UserServer {
   constructor(dburl) {
     this.dburl = dburl;
     this.app = express();
+    this.app.use('/', express.static('client'));
   }
 
   async initRoutes() {
