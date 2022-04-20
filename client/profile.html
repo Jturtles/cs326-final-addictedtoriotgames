@@ -5,23 +5,35 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/profile.css" />
     <script type="module" src="profile.js"></script>
+    
+       <!-- Google Fonts -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="header">
-      <button id = "profile" type="button" class="profile">Profile</button>
-      <button id = "fd" type="button" class="feed">Feed</button>
+    <header>
+      <button id = "prof" type="button" class="profile">Profile</button>
+      <button id = "fd"type="button" class="feed">Feed</button>
       <button type="button" class="upload">Upload</button>
-      <button type="button" class="fotd">FOTD</button>
-      <button id = "sout" gittype="button" class="signout">Sign Out</button>
-    </div>
+      <h1 class="logo">FOTD</h1>
+      <button id = "sout"type="button" class="signout">Sign Out</button>
+  </header>
     <div class="mainbody">
       <div class="mbody" id="mainprof">
         <div id="mainpic"><img src="https://th.bing.com/th/id/OIP.r4aFCZFB_j5YOIHRwZs11wHaHa?pid=ImgDet&rs=1" alt="goku"></div>
-        <div id="name-email">Name          Email</div>
-        <div id="rating"><img src="https://th.bing.com/th/id/R.8c9403dc335fe538d1d7d03971a91df0?rik=F9e0sYXr8wUTtQ&riu=http%3a%2f%2fcliparts.co%2fcliparts%2frcn%2fRer%2frcnRerX5i.png&ehk=jb61dHfIh3zrJOSZSA6TfaLWkj168IXrTaD2LBaJZVY%3d&risl=&pid=ImgRaw&r=0" alt="stars"></div>
+        <div id="name-email">
+          <h1 style="float: left">Kevin Nguyen</h1>
+          <h1 id = em style="float: right">kevin@gmail.com</h1>
+        </div>
+        <div id="rating">
+          <h2>Average</h2>
+          <img src="https://miro.medium.com/max/1106/1*tAZ0DsBYgXTsn2BBLxlIIg.png" alt="stars"></div>
       </div>
       <div class="mbody" id="feed">
-        <div id="feedhead">feed</div>
+        <div id="feedhead">
+          <h1>Recent Fits</h1>
+        </div>
         <div id="picbody">
           <div class="pic"><img src="https://th.bing.com/th/id/OIP.r4aFCZFB_j5YOIHRwZs11wHaHa?pid=ImgDet&rs=1" alt="goku"></div>
           <div class="pic"><img src="https://th.bing.com/th/id/OIP.r4aFCZFB_j5YOIHRwZs11wHaHa?pid=ImgDet&rs=1" alt="goku"></div>
