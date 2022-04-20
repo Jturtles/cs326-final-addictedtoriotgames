@@ -12,8 +12,8 @@ header {
     background-color: black; 
     font-family: Poppins;
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 10px;
@@ -77,11 +77,11 @@ header {
     font-size: 30px;
 } */
 #signout {
-    margin-left: 10px;
+    margin-left: 10%;
 }
 .mainbody{
     width: auto;
-    height: 800px;
+    height: 89vh;
     display: flex;
     background-color: lightgray;
 }
@@ -93,16 +93,16 @@ header {
 
 #mainprof {
     width: auto ;
-    height: 750px;
-    margin-top: 20px;
-    margin-left: 200px;
+    height: 90%;
+    margin-top: 1%;
+    margin-left: 10%;
     justify-content: center;
     background-color: white;
 }
 
 #mainpic {
-    height: 500px;
-    width: 500px;
+    height: 65%;
+    width: 100%;
 }
 #mainpic > * {
     margin: 50px;
@@ -121,22 +121,24 @@ header {
 }
 
 #feed{
-    height: 700px;
+    height: 69.5%;
     width: auto;
 }
 
 #feedhead {
-    margin: 20px;
-    width: 800px;
-    height: 75px;
+    margin-top: 4%;
+    margin-left: 2.5%;
+    margin-bottom: 2.5%;
+    width: 180%;
+    height: 10%;
     background-color: white;
 }
 
 #feedhead > h1 {
     font-size: 18px;
     text-align: left;
-    line-height: 4;
-    margin-left: 20px;
+    line-height: 3.2;
+    margin-left: 2%;
     font-family: Poppins;
 }
 #name-email{
@@ -175,9 +177,9 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    margin-left: 20px;
-    width: 800px;
-    height:655px;
+    margin-left: 2.5%;
+    width: 180%;
+    height: 117%;
     background-color: white;
 }
 
