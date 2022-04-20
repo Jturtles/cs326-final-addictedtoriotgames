@@ -9,57 +9,48 @@ header {
 }
 .profile {
     background-color: black; 
-    font-family: Poppins;
     color: white;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 5px;
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+    border-radius: 5px;
 } 
-.logo{
-    position: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: Arvo;
-    font-size: 0.5em;
-    color: rgb(0, 0, 0);
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.462);
-}
 .feed {
-    background-color: black;
-    font-family: Poppins; 
+    background-color: black; 
     color: white;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 5px;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+    border-radius: 5px;
 } 
 .upload {
     background-color: black; 
-    font-family: Poppins;
     color: white;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 5px;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+    border-radius: 5px;
+} 
+.fotd {
+    background-color: black; 
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    padding: 15px;
+    border-radius: 5px;
 } 
 .signout {
     background-color: black; 
-    font-family: Poppins;
     color: white;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 5px;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+    border-radius: 5px;
 } 
 
 
@@ -93,10 +84,9 @@ header {
     margin-left: 90px;
     margin-bottom: 10px;
     grid-area: name;
-    grid-template-columns: 1fr 1fr 1fr 1fr;   
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 }
-
 .pic > img {
     text-align: left;
     max-width: 40%;
@@ -108,13 +98,11 @@ header {
     text-align: left;
     margin-top: 30px;
     margin-left: -10px;
-    font-family: Poppins;
 }
 .date > h1 {
     font-size: small;
     text-align: left;
     margin-top: 30px;
-    font-family: Poppins;
 }
 .fitpic {
     color: black;
@@ -123,7 +111,6 @@ header {
     padding: 10px;
     grid-area: fitpic;
     display: inline-block;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
 }
 .fitpic > img {
     display: inline-block;
@@ -136,8 +123,6 @@ header {
     margin-right: 90px;
     padding: 10px;
     grid-area: description;
-    font-family: Poppins;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
 }
 .description > p {
     padding-left: 15px;
@@ -154,7 +139,6 @@ header {
     margin-bottom: 60px;
     grid-area: rating;
     display: inline-block;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
 }
 
 .right {
