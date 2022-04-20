@@ -13,8 +13,8 @@ class UserServer {
 
     this.app.get('/user/create', async (req, res) => {
       try {
-        const { id, name, email, username, pictures  } = req.query;
-        const user = await self.db.createUser(id, name, email, username, pictures);
+        const { id, name, email, username, password } = req.query;
+        const user = await self.db.createUser(id, name, email, username, password);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
@@ -33,8 +33,8 @@ class UserServer {
 
     this.app.get('/user/update', async (req, res) => {
       try {
-        const { id, name, email, username, pictures } = req.query;
-        const user = await self.db.updateUser(id, name, email, username, pictures);
+        const { id, name, email, username, password } = req.query;
+        const user = await self.db.updateUser(id, name, email, username, password);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
