@@ -11,7 +11,7 @@
     "node": "16.11.0"
   },
   "scripts": {
-    "deploy": "copyfiles client/* server/* .env package*.json deploy",
+    "deploy": "copyfiles client/* server/* client/css/* client/images/* .env package*.json deploy",
     "start": "node server/index.js",
     "debug": "node --inspect-brk index.js"
   },
