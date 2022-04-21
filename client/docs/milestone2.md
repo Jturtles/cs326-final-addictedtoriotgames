@@ -21,7 +21,8 @@ Users can also direct to their profile, which calls the user API which returns p
 
 # Client Interfaces
 Create:
-
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/24284833/164344988-a5bdd56b-7199-445c-bbe9-b39d2cf5da11.png">
+By clicking the sign up button after filling in the information, a user will be created as our system will send a createuser call to the database.
 
 Read: 
 <img width="1439" alt="image" src="https://user-images.githubusercontent.com/24284833/164344401-c3a70619-7c2c-444f-95cf-faf1c3179507.png">
