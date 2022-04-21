@@ -25,9 +25,11 @@ Create:
 
 Read: 
 <img width="1439" alt="image" src="https://user-images.githubusercontent.com/24284833/164344401-c3a70619-7c2c-444f-95cf-faf1c3179507.png">
-After signing in, the system does a read call to the user database and fetches the user that has been requested.
+After signing in, our system does a read call to the user database and fetches the user that has been requested.
 
 Update: 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/24284833/164344797-e74bd131-91a3-4384-b1a0-5ae2672a0b51.png">
+On the feed page of the website, we have an upload button that will allows users to update their feed by uploading their own photos/fit. Our system does an update call to the user database and adds another photo to the user account.
 
 Delete:
 # Heroku Application
