@@ -20,8 +20,16 @@ Users can also direct to their profile, which calls the user API which returns p
 
 
 # Client Interfaces
+Create:
 
 
+Read: 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/24284833/164344401-c3a70619-7c2c-444f-95cf-faf1c3179507.png">
+After signing in, the system does a read call to the user database and fetches the user that has been requested.
+
+Update: 
+
+Delete:
 # Heroku Application
 https://stark-savannah-02215.herokuapp.com/
 
