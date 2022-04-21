@@ -33,7 +33,7 @@ Update:
 On the feed page of the website, we have an upload button that will allows users to update their feed by uploading their own photos/fit. Our system does an update call to the user database and adds another photo to the user account.
 
 Delete:
-<img width="1439" alt="image" src="./images/DeleteFunction.png">
+<img width="1439" alt="image" src="./DeleteFunction.png">
 On the profile page, there is a button that will allow the users to delete their account. Our system will make an api call to the user database and delete the users from there.
 
 # Heroku Application
