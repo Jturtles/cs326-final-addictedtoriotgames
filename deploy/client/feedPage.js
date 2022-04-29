@@ -1,7 +1,7 @@
 import * as crud from './crud.js';
 
-const prof = document.getElementById("profile");
-const signout = document.getElementById("signout");
+const prof = document.getElementById("prof");
+const signout = document.getElementById("sout");
 
 prof.addEventListener("click", () =>{
     window.location.href = "profile.html";
