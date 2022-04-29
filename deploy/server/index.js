@@ -12,7 +12,7 @@ class UserServer {
     // Note: when using arrow functions, the "this" binding is lost.
     const self = this;
 
-    this.app.get('/user/create', async (req, res) => {
+    this.app.post('/user/create', async (req, res) => {
       try {
         const { id, name, email, username, password } = req.query;
         const user = await self.db.createUser(id, name, email, username, password);
