@@ -8,6 +8,8 @@ class UserServer {
     this.app.use('/', express.static('client'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended:true}));
+    this.app.use(expressSession(sessionConfig));
+    this.auth.configure(app);
   }
 
   async initRoutes() {
@@ -63,6 +65,90 @@ class UserServer {
       }
     });
 
+    // Our own middleware to check if the user is authenticated
+    function checkLoggedIn(req, res, next) {
+      if (req.isAuthenticated()) {
+        // If we are authenticated, run the next route.
+        next();
+      } else {
+        // Otherwise, redirect to the login page.
+        res.redirect('/login');
+      }
+    }
+
+    this.app.get('/', checkLoggedIn, (req, res) => {
+      res.send('hello world');
+    });
+
+    // Handle the URL /login (just output the login.html file).
+    this.app.get('/login', (req, res) =>
+      res.sendFile('client/login.html', { root: __dirname })
+    );
+
+    // Handle post data from the login.html form.
+    this.app.post(
+      '/login',
+      auth.authenticate('local', {
+        // use username/password authentication
+        successRedirect: '/private', // when we login, go to /private
+        failureRedirect: '/login', // otherwise, back to login
+      })
+    );
+
+    // Handle logging out (takes us back to the login page).
+    this.app.get('/logout', (req, res) => {
+      req.logout(); // Logs us out!
+      res.redirect('/login'); // back to login
+    });
+
+    // Like login, but add a new user and password IFF one doesn't exist already.
+    // If we successfully add a new user, go to /login, else, back to /register.
+    // Use req.body to access data (as in, req.body['username']).
+    // Use res.redirect to change URLs.
+    this.app.post('/register', (req, res) => {
+      const { username, password } = req.body;
+      if (users.addUser(username, password)) {
+        res.redirect('/login');
+      } else {
+        res.redirect('/register');
+      }
+    });
+
+    // Register URL
+    this.app.get('/register', (req, res) =>
+      res.sendFile('client/register.html', { root: __dirname })
+    );
+
+    // Private data
+    this.app.get(
+      '/private',
+      checkLoggedIn, // If we are logged in (notice the comma!)...
+      (req, res) => {
+        // Go to the user's page.
+        res.redirect('/private/' + req.user);
+      }
+    );
+
+    // A dummy page for the user.
+    this.app.get(
+      '/private/:userID/',
+      checkLoggedIn, // We also protect this route: authenticated...
+      (req, res) => {
+        // Verify this is the right user.
+        if (req.params.userID === req.user) {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.write('<H1>HELLO ' + req.params.userID + '</H1>');
+          res.write('<br/><a href="/logout">click here to logout</a>');
+          res.end();
+        } else {
+          res.redirect('/private/');
+        }
+      }
+    );
+
+    this.app.get('*', (req, res) => {
+      res.send('Error');
+    });
   }
 
   async initDb() {
