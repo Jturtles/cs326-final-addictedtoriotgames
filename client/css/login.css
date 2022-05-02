@@ -72,3 +72,17 @@ body {
     color : white;
     padding: 10px 45px;
 }
+.signup{
+    /* position: fixed; */
+    margin-top: 46%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-size: 1em;
+    color:rgb(74, 38, 0);
+    text-decoration: underline;
+    animation-name: login, login-opacity;
+    animation-duration: 1s, 1s;
+    animation-delay: 1s, 0s;
+}
