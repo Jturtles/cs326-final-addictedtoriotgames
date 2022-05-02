@@ -21,12 +21,14 @@
       <div class = "form">
         <h1 class="logo">FOTD</h1>
         <div>
-            <h4 class = "signin">Get Started Here.</h3>
-            <input id = "email" class = "email" type="text" name="Email" placeholder="Email">
-            <br>
-            <input id = "password" class = "password" type="text" name="Password" placeholder="Password">
-            <br>
-            <button id = "login" class = "login">Login</button>
+            <form action="/login" method="post">
+              <h4 class = "signin">Get Started Here.</h3>
+              <input id = "email" class = "email" type="text" name="Email" placeholder="Email">
+              <br>
+              <input id = "password" class = "password" type="password" name="Password" placeholder="Password">
+              <br>
+              <button type='submit' id = "login" class = "login" value="Login">Login</button>
+            </form>
         </div>
       </div>
       

@@ -14,7 +14,7 @@ export class UserDatabase {
     });
 
     // Get the database.
-    this.db = this.client.db('FOTD');
+    this.db = this.client.db('Cluster0');
 
     // Init the database.
     await this.init();
@@ -22,7 +22,7 @@ export class UserDatabase {
 
   async init() {
     this.userCollection = this.db.collection('users');
-    this.postCollection = this.db.colleciton('posts');
+    this.postCollection = this.db.collection('posts');
   }
 
   // Close the pool.
