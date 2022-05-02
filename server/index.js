@@ -1,15 +1,31 @@
+import 'dotenv/config';
 import express from 'express';
 import { UserDatabase } from './users-db.js';
+import expressSession from 'express-session';
+import {Users} from './users.js';
+import auth from './auth.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Session configuration
+const sessionConfig = {
+  // set this encryption key in Heroku config (never in GitHub)!
+  secret: process.env.SECRET || 'SECRET',
+  resave: false,
+  saveUninitialized: false,
+};
 
 class UserServer {
   constructor(dburl) {
+    const __filename = fileURLToPath(import.meta.url);
+    this.__dirname = dirname(dirname(__filename));
     this.dburl = dburl;
     this.app = express();
     this.app.use('/', express.static('client'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended:true}));
     this.app.use(expressSession(sessionConfig));
-    this.auth.configure(app);
+    auth.configure(this.app);
   }
 
   async initRoutes() {
@@ -76,13 +92,13 @@ class UserServer {
       }
     }
 
-    this.app.get('/', checkLoggedIn, (req, res) => {
-      res.send('hello world');
-    });
+    // this.app.get('/', checkLoggedIn, (req, res) => {
+    //   res.send('hello world');
+    // });
 
     // Handle the URL /login (just output the login.html file).
     this.app.get('/login', (req, res) =>
-      res.sendFile('client/login.html', { root: __dirname })
+      res.sendFile('client/index.html', { root: this.__dirname })
     );
 
     // Handle post data from the login.html form.
@@ -105,18 +121,18 @@ class UserServer {
     // If we successfully add a new user, go to /login, else, back to /register.
     // Use req.body to access data (as in, req.body['username']).
     // Use res.redirect to change URLs.
-    this.app.post('/register', (req, res) => {
-      const { username, password } = req.body;
-      if (users.addUser(username, password)) {
+    this.app.post('/singup', (req, res) => {
+      const { email, username, password } = req.body;
+      if (this.users.addUser(email, username, password)) {
         res.redirect('/login');
       } else {
-        res.redirect('/register');
+        res.redirect('/singup');
       }
     });
 
     // Register URL
-    this.app.get('/register', (req, res) =>
-      res.sendFile('client/register.html', { root: __dirname })
+    this.app.get('/singup', (req, res) =>
+      res.sendFile('client/signUp.html', { root: this.__dirname })
     );
 
     // Private data
@@ -136,10 +152,7 @@ class UserServer {
       (req, res) => {
         // Verify this is the right user.
         if (req.params.userID === req.user) {
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.write('<H1>HELLO ' + req.params.userID + '</H1>');
-          res.write('<br/><a href="/logout">click here to logout</a>');
-          res.end();
+
         } else {
           res.redirect('/private/');
         }
@@ -156,9 +169,15 @@ class UserServer {
     await this.db.connect();
   }
 
+  async initUser(){
+    this.users = new Users(this.dburl);
+    await this.users.connect();
+  }
+
   async start() {
     await this.initRoutes();
     await this.initDb();
+    await this.initUser();
     const port = process.env.PORT || 8080;
     this.app.listen(port, () => {
       console.log(`UserServer listening on port ${port}!`);
@@ -166,5 +185,5 @@ class UserServer {
   }
 }
 
-const server = new UserServer(process.env.DATABASE_URL);
+const server = new UserServer(process.env.MONGODB_URI);
 server.start();
