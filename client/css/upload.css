@@ -1,0 +1,163 @@
+.gridwrapper{
+    height: auto;
+}
+
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    grid-area: header;
+}
+.profile {
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+} 
+.logo{
+    position: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arvo;
+    font-size: 3em;
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.462);
+}
+.feed {
+    background-color: black;
+    font-family: Poppins; 
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+} 
+.upload {
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+} 
+.signout {
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+} 
+
+.mid{
+    display: grid;
+    background-color: lightgrey; 
+    height: 88vh;
+}
+
+.square{
+    display: flex;
+    margin-top: 10px;
+    background-color: white; 
+    height: 70vh;
+    width: 180vh;
+    margin:auto;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+    border-style: groove;
+    border-width: 1vh;
+
+} 
+
+.left{
+    flex: 50%;
+    border-right: .3vh; 
+    border-right-style: dashed;
+}
+.right {
+    flex: 50%;
+ }
+
+ #uploadIcon{
+     font-size: 26vh;   
+     margin-left: 30vh;
+     margin-top: 15vh;
+ };
+ .form{
+     margin-top: 20vh;
+     font-size: 1px;
+ }
+
+ #label{
+     border-style: groove;
+     border-width: 1vh;
+     border-color: black;
+     margin-left: 28vh;
+     margin-top: 6vh;
+
+     /* Aarons code that I stole :) */
+     background-color: black; 
+     font-family: Poppins;
+     color: white;
+     padding-left: 50px;
+     padding-right: 50px;
+     border-radius: 1px;
+     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+
+ }
+
+ .support{
+     font-size:2vh;
+     color: gray;
+     margin-left: 30vh;
+ }
+
+ .description{
+    height:55vh;
+    width: 85vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    padding:1vh
+ }
+ .placeholder{
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    background-color: white;
+    padding: 0 20px;
+ }
+
+ .submit{
+    border-style: groove;
+    border-width: 1vh;
+    border-color: black;
+    margin-left: 35vh;
+    margin-top: 3vh;
+
+    /* Aarons code that I stole :) */
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 1px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+
+ }
