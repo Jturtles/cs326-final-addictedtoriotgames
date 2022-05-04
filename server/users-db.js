@@ -21,8 +21,8 @@ export class UserDatabase {
   }
 
   async init() {
-    this.userCollection = this.db.collection('users');
-    this.postCollection = this.db.collection('posts');
+    this.userCollection = this.db.collection('Users');
+    this.postCollection = this.db.collection('Posts');
   }
 
   // Close the pool.

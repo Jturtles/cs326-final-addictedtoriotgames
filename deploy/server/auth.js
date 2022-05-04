@@ -8,9 +8,10 @@ const { Strategy } = passportLocal;
 // Create a new LocalStrategy object to handle authentication using username and
 // password credentials from the client. The LocalStrategy object is used to
 // authenticate a user using a username and password.
-const users = new Users(process.env.MONGODB_URI);
-await users.connect();
+
 const strategy = new Strategy(async (username, password, done) => {
+  const users = new Users(process.env.MONGODB_URI);
+  await users.connect();
   if (!users.findUser(username)) {
     // no such user
     return done(null, false, { message: 'Wrong username' });

@@ -23,7 +23,7 @@ export class Users {
   }
 
   async init() {
-    this.collection = this.db.collection('users');
+    this.collection = this.db.collection('Users');
   }
 
   async findUser(username) {
@@ -50,10 +50,10 @@ export class Users {
 
   // Add a user to the "database".
   async addUser(email, name, pwd) {
-    if (this.findUser(name)) {
+    if (await this.findUser(name)) {
       return false;
     }
-    await this.collectionWord.insertOne({name, pwd, email});
+    await this.collection.insertOne({name, pwd, email});
     return true;
   }
 }

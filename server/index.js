@@ -97,9 +97,9 @@ class UserServer {
     // });
 
     // Handle the URL /login (just output the login.html file).
-    this.app.get('/login', (req, res) =>
+    this.app.get('/login', (req, res) => {
       res.sendFile('client/index.html', { root: this.__dirname })
-    );
+    });
 
     // Handle post data from the login.html form.
     this.app.post(
@@ -121,17 +121,17 @@ class UserServer {
     // If we successfully add a new user, go to /login, else, back to /register.
     // Use req.body to access data (as in, req.body['username']).
     // Use res.redirect to change URLs.
-    this.app.post('/singup', (req, res) => {
-      const { email, username, password } = req.body;
-      if (this.users.addUser(email, username, password)) {
+    this.app.post('/signup', async (req, res) => {
+      const { email, Username, Password } = req.body;
+      if (await this.users.addUser(email, Username, Password)) {
         res.redirect('/login');
       } else {
-        res.redirect('/singup');
+        res.redirect('/signup');
       }
     });
 
     // Register URL
-    this.app.get('/singup', (req, res) =>
+    this.app.get('/signup', (req, res) =>
       res.sendFile('client/signUp.html', { root: this.__dirname })
     );
 
