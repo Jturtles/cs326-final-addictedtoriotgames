@@ -36,14 +36,13 @@
               </style>
             <p class = "support">Supported Files: All Image Files</p>
           </div>
-
           <div class = right>
-            <form class = uploadForm>
-              <textarea class = "description" name="Description" rows = "10"cols = "30">Describe your fit in detail</textarea>
+            <form class = uploadForm action="/upload" method="post">
+              <textarea class = "description" type="text" name="Description" rows = "10"cols = "30">Describe your fit in detail</textarea>
               <br>
               <label for = "picUpload" id = "label" class="btn">Select Image</label>
-              <input id = "picUpload" type = "file" style="visibility:hidden;" name = "upload" accept = "image/*"/>
-              <button class = "submit">Submit</button>
+              <input id = "picUpload" type = "file" style="visibility:hidden;" name = "upload" accept = "image/jpeg  , image/png"/>
+              <button class = "submit" type = "submit">Submit</button>
           </form>
           </div>
         </div>
