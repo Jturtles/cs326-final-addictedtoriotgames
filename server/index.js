@@ -87,6 +87,15 @@ class UserServer {
         res.status(500).send(err);
       }
     });
+
+    this.app.get('/post/all', async (req, res) => {
+      try {
+        const post = await self.db.readAllPosts();
+        res.send(JSON.stringify(post));
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
     
 
     // Our own middleware to check if the user is authenticated

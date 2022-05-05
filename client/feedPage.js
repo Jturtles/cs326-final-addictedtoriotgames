@@ -10,6 +10,7 @@ const userEl = document.getElementById('user');
 userEl.innerHTML = user.name;
 const prof = document.getElementById("prof");
 const signout = document.getElementById("sout");
+const allPost = await crud.readAllPost();
 
 prof.addEventListener("click", () =>{
     window.location.href = "profile.html";
