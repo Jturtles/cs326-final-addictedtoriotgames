@@ -1,5 +1,5 @@
-export async function createUser(name, email, username, password) {
-    const user = JSON.stringify({name,email,username,password});
+export async function createUser(name, email, username, password, pictures) {
+    const user = JSON.stringify({name,email,username,password, pictures});
     const response = await fetch(`/user/create`, {
         method: 'POST',
         headers: {
@@ -25,9 +25,23 @@ export async function readUser(id) {
     return data;
 }
 
-export async function updateUser(id, name, email, username, password) {
-    const user = JSON.stringify({id,name,email,username,password});
-    const response = await fetch(`/user/update`, {
+  
+export async function readUserPosts(email) {
+    const user = JSON.stringify({email});
+    const response = await fetch(`/user/read/posts`, {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
+    });
+    const data = await response.json();
+    return data;
+}
+
+export async function uploadPost(email, post) {
+    const user = JSON.stringify({email, post});
+    const response = await fetch(`/user/upload`, {
         method: 'PUT',
         headers: {
             'Content-Type' : 'application/json',

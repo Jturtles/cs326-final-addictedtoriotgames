@@ -117,13 +117,12 @@ class UserServer {
       '/login',
       async (req, res) => {
         const { Email, Password } = req.body;
-        console.log(req.body);
         const val = await this.users.validatePassword(Email, Password);
         if (val === false) {
           res.send(JSON.stringify([]));
         } else {
           res.send(JSON.stringify(val));
-        }
+        }7
       });
 
     // Handle logging out (takes us back to the login page).

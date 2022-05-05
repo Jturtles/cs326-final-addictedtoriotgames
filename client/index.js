@@ -2,7 +2,7 @@ import * as crud from './crud.js';
 
 const log = document.getElementById("login");
 const signup = document.getElementById("signup");
-
+let values = null;
 log.addEventListener("click", async () =>{
     const Email = document.getElementById('email').value;
     const Password = document.getElementById('password').value;
@@ -16,6 +16,8 @@ log.addEventListener("click", async () =>{
     body: data,
   });
   let results = await response.json();
+  values = results;
+  console.log(values);
   if(results.length != 0){
     window.location.href = 'feedPage.html';
   } else {
