@@ -109,8 +109,9 @@ header {
      border-style: groove;
      border-width: 1vh;
      border-color: black;
-     margin-left: 31.5vh;
-     margin-top: 6vh;
+     margin-left: -60vh;
+     margin-top: -6vh;
+     
 
      /* Aarons code that I stole :) */
      background-color: black; 
@@ -144,12 +145,15 @@ header {
     background-color: white;
     padding: 0 20px;
  }
+ .uploadForm {
+     display: inline-block;
+ }
 
  .submit{
     border-style: groove;
     border-width: 1vh;
     border-color: black;
-    margin-left: 35vh;
+    margin-left: 22vh;
     margin-top: 3vh;
 
     /* Aarons code that I stole :) */
@@ -161,4 +165,7 @@ header {
     border-radius: 1px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 
+ }
+ .sameLine{
+     display: inline-block;
  }
