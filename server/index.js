@@ -31,8 +31,8 @@ class UserServer {
 
     this.app.post('/user/create', async (req, res) => {
       try {
-        const {name, username, email, password, pictures } = req.body;
-        const user = await self.db.createUser(name, username, email, password, pictures);
+        const {name, username, email, password } = req.body;
+        const user = await self.db.createUser(name, username, email, password);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
