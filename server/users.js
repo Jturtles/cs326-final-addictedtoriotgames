@@ -37,14 +37,15 @@ export class Users {
 
   // Returns true iff the password is the one we have stored (in plaintext = bad
   // but easy).
-  async validatePassword(name, pwd) {
-    const res = await this.collection.findOne({name:name});
+  async validatePassword(name, password) {
+    const res = await this.collection.findOne({email:name});
     if(res === null){
       return false;
+    } 
+    if (res.pwd !== password) {
+      return false; 
     }
-    if (res[password] !== pwd) {
-      return false;
-    }
+    console.log('here');
     return true;
   }
 

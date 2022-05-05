@@ -105,11 +105,11 @@ class UserServer {
     this.app.post(
       '/login',
       async (req, res) => {
-        const { email, Username, Password } = req.body;
-        if (await this.users.addUser(email, Username, Password)) {
-          res.redirect('/login');
+        const { Email, Password } = req.body;
+        if (await this.users.validatePassword(Email, Password)) {
+          res.redirect('/feed');
         } else {
-          res.redirect('/signup');
+          res.redirect('/login');
         }
       });
 
@@ -130,6 +130,10 @@ class UserServer {
       } else {
         res.redirect('/signup');
       }
+    });
+
+    this.app.get('/feed', (req, res) => {
+      res.sendFile('client/feedPage.html', { root: this.__dirname })
     });
 
     // Register URL
