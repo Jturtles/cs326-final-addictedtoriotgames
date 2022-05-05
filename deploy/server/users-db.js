@@ -72,4 +72,34 @@ export class UserDatabase {
     const res = await this.userCollection.find({}).toArray();
     return res;
   }
+  // Add a user to the "database".
+  async addUser(email, name, pwd) {
+    if (await this.findUser(name)) {
+      return false;
+    }
+    await this.userCollection.insertOne({name, pwd, email});
+    return true;
+  }
+
+  async findUser(username) {
+    const res = await this.userCollection.findOne({name:username});
+    if(res != null){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Returns true iff the password is the one we have stored (in plaintext = bad
+  // but easy).
+  async validatePassword(name, password) {
+    const res = await this.userCollection.findOne({email:name});
+    if(res === null){
+      return false;
+    } 
+    if (res.pwd !== password) {
+      return false; 
+    }
+    return true;
+  }
 }

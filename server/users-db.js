@@ -4,6 +4,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 export class UserDatabase {
   constructor(dburl) {
     this.dburl = dburl;
+    this.user = null;
   }
 
   async connect() {
@@ -100,6 +101,15 @@ export class UserDatabase {
     if (res.pwd !== password) {
       return false; 
     }
+    this.user = res;
     return true;
+  }
+
+  getUser(){
+    return this.user;
+  }
+
+  logOut(){
+    this.user = null;
   }
 }

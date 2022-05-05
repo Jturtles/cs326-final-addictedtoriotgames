@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import { UserDatabase } from './users-db.js';
 import expressSession from 'express-session';
-import {Users} from './users.js';
 import auth from './auth.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -117,7 +116,7 @@ class UserServer {
       '/login',
       async (req, res) => {
         const { Email, Password } = req.body;
-        if (await this.users.validatePassword(Email, Password)) {
+        if (await this.db.validatePassword(Email, Password)) {
           res.redirect('/feed');
         } else {
           res.redirect('/login');
@@ -136,7 +135,7 @@ class UserServer {
     // Use res.redirect to change URLs.
     this.app.post('/signup', async (req, res) => {
       const { email, Username, Password } = req.body;
-      if (await this.users.addUser(email, Username, Password)) {
+      if (await this.db.addUser(email, Username, Password)) {
         res.redirect('/login');
       } else {
         res.redirect('/signup');
@@ -186,15 +185,9 @@ class UserServer {
     await this.db.connect();
   }
 
-  async initUser(){
-    this.users = new Users(this.dburl);
-    await this.users.connect();
-  }
-
   async start() {
     await this.initRoutes();
     await this.initDb();
-    await this.initUser();
     const port = process.env.PORT || 8080;
     this.app.listen(port, () => {
       console.log(`UserServer listening on port ${port}!`);
