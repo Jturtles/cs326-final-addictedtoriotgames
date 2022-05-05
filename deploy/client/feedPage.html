@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html lang = "en-US">
-<head>
-    <title>Feed</title>
-    <link href = "css/feedPage.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
-
+<html lang="en">
+  <head>
+    <title>Feed Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/feedPage.css" />
     <script type="module" src="feedPage.js"></script>
-</head>
-<body>
+    
+       <!-- Google Fonts -->
+       <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=League+Spartan:wght@300&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
     <div class="gridwrapper">
-        <header>
-            <button id = "prof" type="button" class="profile">Profile</button>
-            <button id = "fd" type="button" class="feed">Feed</button>
-            <button id = "upload" type="button" class="upload">Upload</button>
-            <h1 class="logo">FOTD</h1>
-            <button id = "sout"type="button" class="signout">Sign Out</button>
-        </header>
-        <div class="left"></div>
-        <div class="mid">
-            <div class="name">
-                <div class="pic"><img src="Drip_Goku.webp" alt="Goku wearing a drippy outfit"></div>
-                <div class="pfname"><h1>Son Goku</h1></div>
-                <div class="date"><h1>3/23/2022</h1></div>
-            </div>
-            <div class="fitpic">
-                <img src="Drip_Goku.webp" alt="Goku wearing a drippy outfit">
-            </div>
-            <div class="description">
-                <p class="text">
-                    Glasses: Shades <br>
-                    Jacket: Supreme <br>
-                    Shirt: Supreme <br>
-                </p>
-            </div>
-            <div class="rating">
-                <img class="stars" src="https://miro.medium.com/max/1106/1*PvoG2ZWSd5Z-a3k2jdM55A.png" height="60" width="200" alt="star ratings">
-            </div>
+      <header>
+        <div class="test">
+          <button id = "prof" type="button" class="button">Profile</button>
         </div>
-        <div class="right"></div>
-    </div>
-</body>
-</html>
+        <div class="test">
+          <button id = "fd"type="button" class="button">Feed</button>
+        </div>
+        <div class="test">
+          <button id = "upload" type="button" class="button">Upload</button>
+        </div>
+        <div class="test">
+         
+        </div>
+        <div class="test">
+          <h1 id = "logo" class="logo">FOTD</h1>
+        </div>
+        <div class="test">
+          <button id = "sout"type="button" class="button">Sign Out</button>
+        </div>
+    </header>
+    <div class="bottomGrid">
+      <div class="left"><img src="images/chevronleft.svg"></div>
+      <div class="mid">
+            <div class="feedImageCont">
+                <div class="userCont">
+                    <div class="profilePic"><img src="Drip_Goku.webp"></div>
+                    <div class="profileName"><p id="profileName" class="profileName">Goku391</p></div>
+                    <div class="date"><p id="date" class="date">May 4th, 2022</p></div>
+                </div>
+                <div class="image"><img id="feedImg" class="feedImg" src="Drip_goku.webp"></div>
+                <div class="ratingCont"></div>
+            </div>
+                <div class="feedDescCont">
+                    <div class="descTitleCont"><p class="descTitle">Description</p></div>
+                    <div class="descCont"><p id="description" class="description">My sunglasses are Minecraft Edition from Mojang, $150. T-Shirt is a classic black bogo from Supreme, about $300. My puffer coat is a North Face x Supreme collab, roughly $1600.</p></div>
+                    <!-- <div class="ratingCont"></div> -->
+                </div>
+      </div>
+      <div class="right"><img src="images/chevronright.svg"></div>
+  </div>
 
+  </body>
+</html>

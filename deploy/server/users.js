@@ -45,7 +45,6 @@ export class Users {
     if (res.pwd !== password) {
       return false; 
     }
-    console.log('here');
     return true;
   }
 

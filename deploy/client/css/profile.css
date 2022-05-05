@@ -24,10 +24,10 @@ margin: 0px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
     
 }
-#profile {
-    background-color: black; 
+#prof{
+    background-color: black;
+    color: white; 
     font-family: Poppins;
-    color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
 #logo{
@@ -60,6 +60,21 @@ margin: 0px;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
+
+
+
+#delete {
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+}
+.test {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
