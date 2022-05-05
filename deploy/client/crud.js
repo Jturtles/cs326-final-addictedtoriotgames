@@ -1,36 +1,65 @@
-export async function createUser(id, name, email, username, password) {
-    const response = await fetch(
-        `/user/create?id=${id}&name=${name}&email=${email}&username=${username}&password=${password}`,
-        {
+export async function createUser(name, email, username, password, pictures) {
+    const user = JSON.stringify({name,email,username,password, pictures});
+    const response = await fetch(`/user/create`, {
         method: 'POST',
-        }
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
+    }
     );
     const data = await response.json();
     return data;
 }
   
 export async function readUser(id) {
-    const response = await fetch(`/user/read?id=${id}`, {
+    const user = JSON.stringify({id});
+    const response = await fetch(`/user/read`, {
         method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
     });
     const data = await response.json();
     return data;
 }
 
-export async function updateUser(id, name, email, username, password) {
-    const response = await fetch(
-        `/user/update?id=${id}&name=${name}&email=${email}&username=${username}&password=${password}`,
-        {
+  
+export async function readUserPosts(email) {
+    const user = JSON.stringify({email});
+    const response = await fetch(`/user/read/posts`, {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
+    });
+    const data = await response.json();
+    return data;
+}
+
+export async function uploadPost(email, post) {
+    const user = JSON.stringify({email, post});
+    const response = await fetch(`/user/upload`, {
         method: 'PUT',
-        }
-    );
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
+    });
     const data = await response.json();
     return data;
 }
 
 export async function deleteUser(id) {
-    const response = await fetch(`/user/delete?id=${id}`, {
+    const user = JSON.stringify({id});
+    const response = await fetch(`/user/delete`, {
         method: 'DELETE',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
     });
     const data = await response.json();
     return data;

@@ -34,8 +34,8 @@ class UserServer {
 
     this.app.post('/user/create', async (req, res) => {
       try {
-        const {name, username, email, password } = req.body;
-        const user = await self.db.createUser(name, username, email, password);
+        const {name, username, email, password, pictures } = req.body;
+        const user = await self.db.createUser(name, username, email, password, pictures);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
@@ -52,17 +52,27 @@ class UserServer {
       }
     });
 
-    this.app.get('/user/update', async (req, res) => {
+    this.app.get('/user/read/post', async (req, res) => {
       try {
-        const {id , name, username, email, password } = req.body;
-        const user = await self.db.updateUser(id, name, username, email, password );
+        const { email } = req.body;
+        const user = await self.db.readUserPosts(email);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
       }
     });
 
-    this.app.get('/user/delete', async (req, res) => {
+    this.app.put('/user/upload', async (req, res) => {
+      try {
+        const {email, post } = req.body;
+        const user = await self.db.uploadPost(email, post );
+        res.send(JSON.stringify(user));
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
+
+    this.app.delete('/user/delete', async (req, res) => {
       try {
         const { id } = req.body;
         const user = await self.db.deleteUser(id);
@@ -80,6 +90,7 @@ class UserServer {
         res.status(500).send(err);
       }
     });
+    
 
     // Our own middleware to check if the user is authenticated
     function checkLoggedIn(req, res, next) {
@@ -106,11 +117,12 @@ class UserServer {
       '/login',
       async (req, res) => {
         const { Email, Password } = req.body;
-        if (await this.users.validatePassword(Email, Password)) {
-          res.redirect('/feed');
+        const val = await this.users.validatePassword(Email, Password);
+        if (val === false) {
+          res.send(JSON.stringify([]));
         } else {
-          res.redirect('/login');
-        }
+          res.send(JSON.stringify(val));
+        }7
       });
 
     // Handle logging out (takes us back to the login page).

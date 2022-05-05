@@ -10,3 +10,11 @@ prof.addEventListener("click", () =>{
 signout.addEventListener("click", () =>{
     window.location.href = "index.html";
 });
+
+document.getElementById('fd').addEventListener("click", async(e) =>{
+    window.location.href = 'feedPage.html';
+});
+
+document.getElementById('upload').addEventListener("click", async(e) =>{
+    window.location.href = 'upload.html';
+});

@@ -7,6 +7,7 @@ const username = document.getElementById("username").value;
 const password = document.getElementById("password").value;
 
 signup.addEventListener('click', async(e) => {
-    const user = await crud.createUser(name, email, username, password);
+    const pictures = [];
+    const user = await crud.createUser(name, email, username, password, pictures);
     window.location.href = "index.html";
 })

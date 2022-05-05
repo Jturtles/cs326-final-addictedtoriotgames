@@ -14,7 +14,7 @@ export class UserDatabase {
     });
 
     // Get the database.
-    this.db = this.client.db('Cluster0');
+    this.db = this.client.db('FOTD');
 
     // Init the database.
     await this.init();
@@ -31,8 +31,8 @@ export class UserDatabase {
   }
 
   // CREATE a user in the database.
-  async createUser(name, username, email, password ) {
-    const res = await this.userCollection.insertOne({name, username, email, password });
+  async createUser(name, username, email, password, pictures ) {
+    const res = await this.userCollection.insertOne({name, username, email, password, pictures });
     return res;
   }
 
@@ -42,11 +42,18 @@ export class UserDatabase {
     return res;
   }
 
+  async readUserPosts(email) {
+    const res = await this.userCollection.findOne({ email: email });
+    return res;
+  }
+
   // UPDATE a user in the database.
-  async updateUser(id, name, username, email, password ) {
+  async uploadPost(email, post ) {
+    const pictures = await this.userCollection.findOne({ email : email });
+    pictures.push(post);
     const res = await this.userCollection.updateOne(
-      { _id: id },
-      { $set: { name, username, email, password } }
+      { email: email },
+      { $set: {pictures : pictures} }
     );
     return res;
   }
