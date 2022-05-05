@@ -48,7 +48,7 @@ export class UserDatabase {
   }
 
   // UPDATE a user in the database.
-  async updateUser(email, post ) {
+  async uploadPost(email, post ) {
     const pictures = await this.userCollection.findOne({ email : email });
     pictures.push(post);
     const res = await this.userCollection.updateOne(

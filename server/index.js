@@ -52,7 +52,7 @@ class UserServer {
       }
     });
 
-    this.app.get('/user/read/posts', async (req, res) => {
+    this.app.get('/user/read/post', async (req, res) => {
       try {
         const { email } = req.body;
         const user = await self.db.readUserPosts(email);
