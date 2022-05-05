@@ -16,7 +16,7 @@ export class Users {
     });
 
     // Get the database.
-    this.db = this.client.db('Cluster0');
+    this.db = this.client.db('FOTD');
 
     // Init the database.
     await this.init();

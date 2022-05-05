@@ -104,12 +104,14 @@ class UserServer {
     // Handle post data from the login.html form.
     this.app.post(
       '/login',
-      auth.authenticate('local', {
-        // use username/password authentication
-        successRedirect: '/private', // when we login, go to /private
-        failureRedirect: '/login', // otherwise, back to login
-      })
-    );
+      async (req, res) => {
+        const { email, Username, Password } = req.body;
+        if (await this.users.addUser(email, Username, Password)) {
+          res.redirect('/login');
+        } else {
+          res.redirect('/signup');
+        }
+      });
 
     // Handle logging out (takes us back to the login page).
     this.app.get('/logout', (req, res) => {
