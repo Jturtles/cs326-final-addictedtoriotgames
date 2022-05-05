@@ -1,179 +1,219 @@
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
-
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
     background-color: white;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 10px;
     grid-area: header;
 }
-.profile {
-    background-color: black; 
-    font-family: Poppins;
+/* .gridwrapper {
+    font-family: Arial;
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-    padding: 10px;
-    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
+    grid-auto-rows: 1fr 9fr;
+} */
+body{
+background-color: #E5E5E5;
+margin: 0px;
+}
+.button{
+    width: 15vh;
+    height: 5vh;
+    border-radius: 2vh;  
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
+    
+}
+#prof{
+    background-color: black;
+    color: white; 
+    font-family: Poppins;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
-.logo{
+#logo{
     position: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-family: Arvo;
-    font-size: 0.5em;
-    color: rgb(0, 0, 0);
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    color: rgb(20, 20, 20);
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.462);
 }
-.feed {
+#fd {
     background-color: black;
     font-family: Poppins; 
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-    padding: 15px;
-    border-radius: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
-.upload {
+#upload {
     background-color: black; 
     font-family: Poppins;
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-    padding: 15px;
-    border-radius: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
-.signout {
+#sout {
     background-color: black; 
     font-family: Poppins;
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-    padding: 15px;
-    border-radius: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
 
 
-.left {
-    background-color: lightgrey;
-    border: 1px;
-    border-color: black;
-    padding: 1px;
-    grid-area: left;
+
+#delete {
+    background-color: black; 
+    font-family: Poppins;
+    color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 }
-.mid {
+.test {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottomGrid {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    height: 85vh;
+
+}
+.left{
+    border: 1px solid black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.left > img {
+    max-height: 10%;
+    opacity: 50%;
+}
+.mid{
+    border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr 3fr 1fr;
-    background-color: lightgrey;
-    padding: 10px;
-    grid-row-gap: 5px;
-    grid-column-gap: 40px;
-    grid-area: mid;
-    grid-template-areas: 
-    "name ."
-    "fitpic description"
-    "rating ."
-    ;
 }
-.name {
+.feedImageCont {
+    margin: 5%;
+    border: 1px solid black;
     display: grid;
-    color: black;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+.userCont {
     background-color: white;
-    margin-top: 60px;
-    margin-left: 90px;
-    margin-bottom: 10px;
-    grid-area: name;
-    grid-template-columns: 1fr 1fr 1fr 1fr;   
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    grid-template-rows: 1fr;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.478);
+}
+.profilePic {
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilePic > img {
+    /* border: 1px solid red; */
+    max-width: 80%;
+    /* height:%; */
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    /* background-image: url("../Drip_Goku.webp"); */
+    /* aspect-ratio: 1 / 1; */
+}
+.feedImg {
+    max-width: 100%;
+    object-fit: cover;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.478);
+    /* margin: 5%; */
+    /* aspect-ratio: 1 / 1; */
+}
+.profileName {
+    display: grid;
+    align-items: center;
+    font-family: Poppins;
+    /* margin-left: 5%; */
+    font-size: 2vw;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+.date {
+    display: flex;
+    color: gray;
+    align-items: center;
+    justify-content: right;
+    font-family: Poppins;
+    margin-left: 5%;
+    font-size: 1.2vw;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    padding-right: 5%;
+}
+.image {
+    border: 1px solid black;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.ratingCont {
+    border: 1px solid black;
+}
+.feedDescCont {
+    margin: 5%;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 1fr 9fr 1fr;
+}
+.descTitleCont{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.478);
+}
+.descCont {
+    border: 1px solid black;
+    background-color: rgb(185, 185, 185);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.478);
 }
 
-.pic > img {
-    text-align: left;
-    max-width: 40%;
-    max-height: 100%;
-    margin-top: 15px;
-}
-.pfname > h1 {
-    font-size: small;
-    text-align: left;
-    margin-top: 30px;
-    margin-left: -10px;
+.descTitle {
     font-family: Poppins;
-}
-.date > h1 {
-    font-size: small;
-    text-align: left;
-    margin-top: 30px;
-    font-family: Poppins;
-}
-.fitpic {
-    color: black;
-    background-color: white;
-    margin-left: 90px;
-    padding: 10px;
-    grid-area: fitpic;
-    display: inline-block;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
-}
-.fitpic > img {
-    display: inline-block;
-    max-width: 100%;
-    max-height: 100%;
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
 }
 .description {
-    color: black;
-    background-color: gray;
-    margin-right: 90px;
-    padding: 10px;
-    grid-area: description;
-    font-family: Poppins;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
+    margin-left: 2%;
+    font-family: League Spartan;
+    line-height: 150%;
 }
-.description > p {
-    padding-left: 15px;
-    line-height: 40px;
-    text-align: left;
-    font-size: 16px;
-}
-
-.rating {
-    color: black;
+.profileImage {
     background-color: white;
-    margin-top: 10px;
-    margin-left: 90px;
-    margin-bottom: 60px;
-    grid-area: rating;
-    display: inline-block;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.375);
-}
-
-.right {
-    background-color: lightgrey;
-    border: 1px;
-    border-color: black;
-    padding: 1px;
-    grid-area: right;
-}
-
-.gridwrapper {
-    font-family: Arial;
-    color: white;
-    text-align: center;
-    font-size: 40px;
+    border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-    grid-auto-rows: 1fr 9fr;
-    grid-template-areas:
-        "header header header"
-        "left mid right"
+    grid-template-columns: 1fr;
+    grid-template-rows: 7fr 3fr;
+    margin-right: 5%;
+}
+.right{
+    border: 1px solid black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.right > img {
+    max-height: 10%;
+    opacity: 50%;
 }
