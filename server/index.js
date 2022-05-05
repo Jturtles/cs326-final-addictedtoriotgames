@@ -106,10 +106,12 @@ class UserServer {
       '/login',
       async (req, res) => {
         const { Email, Password } = req.body;
-        if (await this.users.validatePassword(Email, Password)) {
-          res.redirect('/feed');
+        console.log(req.body);
+        const val = await this.users.validatePassword(Email, Password);
+        if (val === false) {
+          res.send(JSON.stringify([]));
         } else {
-          res.redirect('/login');
+          res.send(JSON.stringify(val));
         }
       });
 

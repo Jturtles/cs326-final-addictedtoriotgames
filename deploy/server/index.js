@@ -104,12 +104,16 @@ class UserServer {
     // Handle post data from the login.html form.
     this.app.post(
       '/login',
-      auth.authenticate('local', {
-        // use username/password authentication
-        successRedirect: '/private', // when we login, go to /private
-        failureRedirect: '/login', // otherwise, back to login
-      })
-    );
+      async (req, res) => {
+        const { Email, Password } = req.body;
+        console.log(req.body);
+        const val = await this.users.validatePassword(Email, Password);
+        if (val === false) {
+          res.send(JSON.stringify([]));
+        } else {
+          res.send(JSON.stringify(val));
+        }
+      });
 
     // Handle logging out (takes us back to the login page).
     this.app.get('/logout', (req, res) => {
@@ -128,6 +132,10 @@ class UserServer {
       } else {
         res.redirect('/signup');
       }
+    });
+
+    this.app.get('/feed', (req, res) => {
+      res.sendFile('client/feedPage.html', { root: this.__dirname })
     });
 
     // Register URL
