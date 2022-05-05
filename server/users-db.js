@@ -46,7 +46,8 @@ export class UserDatabase {
 
   async readUserPosts(email) {
     const res = await this.userCollection.findOne({ email: email });
-    return res;
+    let posts = res.pictures;
+    return posts;
   }
 
   // UPDATE a user in the database.
@@ -54,11 +55,12 @@ export class UserDatabase {
     const data = await this.userCollection.findOne({ email : email });
     let arr = data.pictures;
     arr.push(post);
-    const res = await this.userCollection.updateOne(
+    const user = await this.userCollection.updateOne(
       { email: email },
       { $set: {pictures : arr} }
     );
-    return res;
+    const posts = await this.postCollection.insertOne({post});
+    return user;
   }
 
   // DELETE a user from the database.
@@ -75,6 +77,13 @@ export class UserDatabase {
     const res = await this.userCollection.find({}).toArray();
     return res;
   }
+
+  // READ all posts from the database.
+  async readAllPosts() {
+    const res = await this.postCollection.find({}).toArray();
+    return res;
+  }
+
   // Add a user to the "database".
   async addUser(email, name, pwd) {
     if (await this.findUser(name)) {
