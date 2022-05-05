@@ -7,7 +7,7 @@ document.getElementById('sout').addEventListener("click", async(e) =>{
     window.location.href = 'index.html';
 });
 
-document.getElementById('profile').addEventListener("click", async(e) =>{
+document.getElementById('prof').addEventListener("click", async(e) =>{
     window.location.href = 'profile.html';
 });
 
