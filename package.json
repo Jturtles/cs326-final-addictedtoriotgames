@@ -12,7 +12,7 @@
     "npm": "8.5.5"
   },
   "scripts": {
-    "deploy": "copyfiles client/* server/* client/css/* client/images/* .env package*.json deploy",
+    "deploy": "copyfiles client/* server/* client/css/* client/images/* client/uploadImages/* .env package*.json deploy",
     "start": "node server/index.js",
     "debug": "node --inspect-brk index.js"
   },

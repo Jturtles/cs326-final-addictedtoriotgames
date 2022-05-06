@@ -37,7 +37,7 @@
             <p class = "support">Supported Files: All Image Files</p>
           </div>
           <div class = right>
-            <form class = uploadForm action="/upload" method="post">
+            <form class = uploadForm action="/upload" method="post" enctype="multipart/form-data">
               <textarea class = "description" type="text" name="Description" rows = "10"cols = "30">Describe your fit in detail</textarea>
               <br>
               <label for = "picUpload" id = "label" class="btn">Select Image</label>

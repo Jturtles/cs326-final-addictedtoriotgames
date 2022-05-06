@@ -51,19 +51,23 @@ export class UserDatabase {
   }
 
   // UPDATE a user in the database.
-  async uploadPost(upload, Description) {
+  async uploadPost(upload, type, Description) {
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
     const data = await this.userCollection.findOne({ email : this.user.email });
     let pictures = data.pictures;
-    const post = [upload, Description];
+    const post = [upload, type, Description, this.user.name, today];
     pictures.push(post);
-    console.log(pictures);
     await this.userCollection.updateOne(
       { email: this.user.email },
       { $set: {pictures} }
     );
-    console.log('here1');
     await this.postCollection.insertOne({post});
-    console.log('here2');
   }
 
   // DELETE a user from the database.

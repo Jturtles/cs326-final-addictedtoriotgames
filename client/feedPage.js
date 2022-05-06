@@ -10,12 +10,15 @@ const prof = document.getElementById("prof");
 const signout = document.getElementById("sout");
 const allPost = await crud.readAllPost();
 const feedImg = document.getElementById('feedImg');
-let count = 0
+let count = allPost.length - 1;
 
 function loadFeed(){
     if (allPost.length > 0){
         if(count >= 0 && count < allPost.length){
             feedImg.src = `data:${allPost[count].post[1]};base64, ` + allPost[count].post[0];
+            document.getElementById('description').innerHTML = allPost[count].post[2];
+            document.getElementById('profileName').innerHTML = allPost[count].post[3];
+            document.getElementById('date').innerHTML = allPost[count].post[4];
         }
     } else{
         feedImg.sr = "//:0";
