@@ -20,6 +20,8 @@ function loadProfile(){
     }
 }
 
+document.getElementById('username').innerHTML = user.name;
+document.getElementById('name').innerHTML = user.realname;
 loadProfile();
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';

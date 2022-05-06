@@ -156,8 +156,8 @@ class UserServer {
     // Use req.body to access data (as in, req.body['username']).
     // Use res.redirect to change URLs.
     this.app.post('/signup', async (req, res) => {
-      const { email, Username, Password } = req.body;
-      if (await this.db.addUser(email, Username, Password)) {
+      const { email, Name, Username, Password } = req.body;
+      if (await this.db.addUser(email, Name, Username, Password)) {
         res.redirect('/login');
       } else {
         res.redirect('/signup');

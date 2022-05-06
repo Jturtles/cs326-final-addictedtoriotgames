@@ -92,11 +92,11 @@ export class UserDatabase {
   }
 
   // Add a user to the "database".
-  async addUser(email, name, pwd) {
+  async addUser(email, realname, name, pwd) {
     if (await this.findUser(name)) {
       return false;
     }
-    await this.userCollection.insertOne({name, pwd, email, pictures:[]});
+    await this.userCollection.insertOne({name, realname, pwd, email, pictures:[]});
     return true;
   }
 
