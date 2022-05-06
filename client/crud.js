@@ -52,17 +52,10 @@ export async function uploadPost(email, post) {
     return data;
 }
 
-export async function deleteUser(id) {
-    const user = JSON.stringify({id});
-    const response = await fetch(`/user/delete`, {
+export async function deleteUser() {
+    await fetch(`/user/delete`, {
         method: 'DELETE',
-        headers: {
-            'Content-Type' : 'application/json',
-        },
-        body: user,
     });
-    const data = await response.json();
-    return data;
 }
 
 export async function readAllUser() {

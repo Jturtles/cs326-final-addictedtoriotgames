@@ -25,7 +25,7 @@ document.getElementById('upload').addEventListener("click", async(e) =>{
 });
 
 
-document.getElementById('pdelete').addEventListener('click', async(e) => {
-    //await crud.deleteUser(); #waiting for for signing up users and displaying their names
-    window.location.href = 'index.html'
+document.getElementById('delete').addEventListener('click', async(e) => {
+    await crud.deleteUser();
+    window.location.href = 'index.html';
 });
