@@ -81,3 +81,8 @@ export async function p_to_f(){
     const data = await response.json();
     return data;
 }
+
+export async function getUserInfo(){
+    const res = await fetch('/getUser')
+    return res.json();
+}
