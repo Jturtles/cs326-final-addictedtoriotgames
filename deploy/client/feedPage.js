@@ -47,15 +47,15 @@ document.getElementById('upload').addEventListener("click", async(e) =>{
 });
 
 document.getElementById('next').addEventListener('click', () =>{
-    if(count < allPost.length-1){
-        count += 1;
+    if(count >= 1){
+        count -= 1;
     }
     loadFeed()
 });
 
 document.getElementById('previous').addEventListener('click', () =>{
-    if(count >= 1){
-        count -= 1;
+    if(count < allPost.length-1){
+        count += 1;
     }
     loadFeed()
 });

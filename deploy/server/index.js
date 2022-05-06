@@ -84,9 +84,8 @@ class UserServer {
 
     this.app.delete('/user/delete', async (req, res) => {
       try {
-        const { id } = req.body;
-        const user = await self.db.deleteUser(id);
-        res.send(JSON.stringify(user));
+        await self.db.deleteUser();
+        res.status(200).send();
       } catch (err) {
         res.status(500).send(err);
       }

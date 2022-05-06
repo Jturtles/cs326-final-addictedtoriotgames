@@ -71,12 +71,12 @@ export class UserDatabase {
   }
 
   // DELETE a user from the database.
-  async deleteUser(email) {
+  async deleteUser() {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
     // only contains the 'deletedCount' (and an acknowledged field).
-    const res = await this.userCollection.deleteOne({ email: email });
-    return res;
+    await this.userCollection.deleteOne({ email: this.user.email });
+    this.user = null;
   }
 
   // READ all people from the database.

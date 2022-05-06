@@ -1,13 +1,26 @@
 import * as crud from './crud.js';
 
-async function loadFeed(){
-    const res = await fetch('/getUser')
-    return res.json();
+
+const user = await crud.getUserInfo();
+const pictures = document.getElementById('photoloc');
+function loadProfile(){
+    let count = 0;
+    if(user.pictures.length > 6){
+        count = 6;
+    } else {
+        count = user.pictures.length;
+    }
+    for(let i = 0; i < count; i++){
+        const photoDiv = document.createElement('div');
+        photoDiv.className = 'photo'
+        const pic = document.createElement('img');
+        pic.src = `data:${user.pictures[user.pictures.length - 1 - i][1]};base64, ` + user.pictures[user.pictures.length - 1 - i][0];
+        photoDiv.appendChild(pic);
+        pictures.appendChild(photoDiv);
+    }
 }
 
-const user = await loadFeed();
-const userEl = document.getElementById('user');
-
+loadProfile();
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';
 });
