@@ -25,9 +25,6 @@ document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';
 });
 
-document.getElementById('sout').addEventListener("click", async(e) =>{
-    window.location.href = 'index.html';
-});
 
 document.getElementById('prof').addEventListener("click", async(e) =>{
     window.location.href = 'profile.html';

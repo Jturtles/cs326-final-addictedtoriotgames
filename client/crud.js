@@ -86,3 +86,7 @@ export async function getUserInfo(){
     const res = await fetch('/getUser')
     return res.json();
 }
+
+export async function logout(){
+    await fetch('/logout');
+}

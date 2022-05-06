@@ -35,6 +35,7 @@ class UserServer {
     this.app.use(express.urlencoded({extended:true}));
     this.app.use(expressSession(sessionConfig));
   }
+  
 
   async initRoutes() {
     // Note: when using arrow functions, the "this" binding is lost.
@@ -69,7 +70,6 @@ class UserServer {
         res.status(500).send(err);
       }
     });
-
     this.app.post('/upload', this.upload.single('upload'), async (req, res) => {
       try {
         const img = fs.readFileSync(req.file.path);
@@ -112,7 +112,7 @@ class UserServer {
 
     // Our own middleware to check if the user is authenticated
     function checkLoggedIn(req, res, next) {
-      if (this.db.getUser() !== null) {
+      if (self.db.getUser() !== null) {
         // If we are authenticated, run the next route.
         next();
       } else {
@@ -164,8 +164,12 @@ class UserServer {
       }
     });
 
-    this.app.get('/feed', (req, res) => {
+    this.app.get('/feed', checkLoggedIn, (req, res) => {
       res.sendFile('client/feedPage.html', { root: this.__dirname })
+    });
+
+    this.app.get('/profile', checkLoggedIn, (req, res) => {
+      res.sendFile('client/profile.html', { root: this.__dirname })
     });
 
     // Register URL
