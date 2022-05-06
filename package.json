@@ -17,11 +17,14 @@
     "debug": "node --inspect-brk index.js"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+    "fs": "^0.0.1-security",
     "mongodb": "^4.5.0",
     "morgan": "^1.10.0",
+    "multer": "^1.4.4",
     "node-fetch": "^3.2.4",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",

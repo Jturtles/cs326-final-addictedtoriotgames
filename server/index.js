@@ -4,6 +4,8 @@ import { UserDatabase } from './users-db.js';
 import expressSession from 'express-session';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import multer from 'multer';
+import fs from 'fs';
 
 // Session configuration
 const sessionConfig = {
@@ -13,12 +15,21 @@ const sessionConfig = {
   saveUninitialized: false,
 };
 
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './client/uploadImages')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "--"  + file.originalname)
+  }
+});
 class UserServer {
   constructor(dburl) {
     const __filename = fileURLToPath(import.meta.url);
     this.__dirname = dirname(dirname(__filename));
     this.dburl = dburl;
     this.app = express();
+    this.upload = multer({storage: fileStorageEngine});
     this.app.use('/', express.static('client'));
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended:true}));
@@ -59,10 +70,12 @@ class UserServer {
       }
     });
 
-    this.app.post('/upload', async (req, res) => {
+    this.app.post('/upload', this.upload.single('upload'), async (req, res) => {
       try {
-        const {upload, Description} = req.body;
-        await self.db.uploadPost(upload, Description);
+        const img = fs.readFileSync(req.file.path);
+        const encode_img = img.toString('base64');
+        const {Description} = req.body;
+        await self.db.uploadPost(encode_img, req.file.mimetype, Description);
         res.redirect('/feed');
       } catch (err) {
         res.status(500).send(err);
