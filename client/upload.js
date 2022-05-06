@@ -13,6 +13,9 @@ function base64_encode(file) {
 }
 
 document.getElementById("submit").addEventListener("click", async(e) =>{
+    console.log(document.getElementById("picUpload").value);
+    console.log(document.getElementById("picUpload"));
+    console.log(pic);
     let pic = base64_encode(document.getElementById("picUpload").value);
     const post = await crud.uploadPost(email,pic);
 })
