@@ -127,11 +127,17 @@ margin: 0px;
     /* aspect-ratio: 1 / 1; */
 }
 .feedImg {
-    max-width: 100%;
-    object-fit: cover;
+    max-width: 32vw;
+    max-height: 69vh;
+    object-fit: contain;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.478);
     /* margin: 5%; */
     /* aspect-ratio: 1 / 1; */
+}
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .profileName {
     display: grid;
