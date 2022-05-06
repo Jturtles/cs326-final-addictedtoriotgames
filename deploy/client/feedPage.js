@@ -1,5 +1,13 @@
 import * as crud from './crud.js';
 
+async function loadFeed(){
+    const res = await fetch('/getUser')
+    return res.json();
+}
+
+const user = await loadFeed();
+const userEl = document.getElementById('user');
+userEl.innerHTML = user.name;
 const prof = document.getElementById("prof");
 const signout = document.getElementById("sout");
 
