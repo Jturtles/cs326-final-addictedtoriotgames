@@ -64,7 +64,6 @@ class UserServer {
         const {upload, Description} = req.body;
         await self.db.uploadPost(upload, Description);
         res.redirect('/feed');
-        console.log('here');
       } catch (err) {
         res.status(500).send(err);
       }

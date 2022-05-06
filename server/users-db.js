@@ -53,15 +53,17 @@ export class UserDatabase {
   // UPDATE a user in the database.
   async uploadPost(upload, Description) {
     const data = await this.userCollection.findOne({ email : this.user.email });
-    let arr = data.pictures;
+    let pictures = data.pictures;
     const post = [upload, Description];
-    arr.push(post);
-    const user = await this.userCollection.updateOne(
-      { email: email },
-      { $set: {pictures : arr} }
+    pictures.push(post);
+    console.log(pictures);
+    await this.userCollection.updateOne(
+      { email: this.user.email },
+      { $set: {pictures} }
     );
-    const posts = await this.postCollection.insertOne({post});
-    return user;
+    console.log('here1');
+    await this.postCollection.insertOne({post});
+    console.log('here2');
   }
 
   // DELETE a user from the database.
@@ -90,7 +92,7 @@ export class UserDatabase {
     if (await this.findUser(name)) {
       return false;
     }
-    await this.userCollection.insertOne({name, pwd, email});
+    await this.userCollection.insertOne({name, pwd, email, pictures:[]});
     return true;
   }
 

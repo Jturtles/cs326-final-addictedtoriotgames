@@ -59,11 +59,11 @@ class UserServer {
       }
     });
 
-    this.app.put('/user/upload', async (req, res) => {
+    this.app.post('/upload', async (req, res) => {
       try {
-        const {email, post } = req.body;
-        const user = await self.db.uploadPost(email, post );
-        res.send(JSON.stringify(user));
+        const {upload, Description} = req.body;
+        await self.db.uploadPost(upload, Description);
+        res.redirect('/feed');
       } catch (err) {
         res.status(500).send(err);
       }
