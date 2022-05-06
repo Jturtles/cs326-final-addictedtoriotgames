@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import { UserDatabase } from './users-db.js';
 import expressSession from 'express-session';
-import auth from './auth.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -24,7 +23,6 @@ class UserServer {
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended:true}));
     this.app.use(expressSession(sessionConfig));
-    auth.configure(this.app);
   }
 
   async initRoutes() {
@@ -33,8 +31,8 @@ class UserServer {
 
     this.app.post('/user/create', async (req, res) => {
       try {
-        const {name, username, email, password, pictures } = req.body;
-        const user = await self.db.createUser(name, username, email, password, pictures);
+        const {name, username, email, password } = req.body;
+        const user = await self.db.createUser(name, username, email, password);
         res.send(JSON.stringify(user));
       } catch (err) {
         res.status(500).send(err);
@@ -93,7 +91,7 @@ class UserServer {
 
     // Our own middleware to check if the user is authenticated
     function checkLoggedIn(req, res, next) {
-      if (req.isAuthenticated()) {
+      if (this.db.getUser() !== null) {
         // If we are authenticated, run the next route.
         next();
       } else {
@@ -125,10 +123,13 @@ class UserServer {
 
     // Handle logging out (takes us back to the login page).
     this.app.get('/logout', (req, res) => {
-      req.logout(); // Logs us out!
+      this.db.logOut(); // Logs us out!
       res.redirect('/login'); // back to login
     });
 
+    this.app.get('/getUser', (req, res) => {
+      res.send(JSON.stringify(this.db.getUser()));
+    });
     // Like login, but add a new user and password IFF one doesn't exist already.
     // If we successfully add a new user, go to /login, else, back to /register.
     // Use req.body to access data (as in, req.body['username']).

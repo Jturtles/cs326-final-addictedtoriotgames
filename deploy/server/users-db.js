@@ -4,6 +4,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 export class UserDatabase {
   constructor(dburl) {
     this.dburl = dburl;
+    this.user = null;
   }
 
   async connect() {
@@ -31,14 +32,15 @@ export class UserDatabase {
   }
 
   // CREATE a user in the database.
-  async createUser(name, username, email, password, pictures ) {
+  async createUser(name, username, email, password) {
+    let pictures = [];
     const res = await this.userCollection.insertOne({name, username, email, password, pictures });
     return res;
   }
 
   // READ a user from the database.
-  async readUser(id) {
-    const res = await this.userCollection.findOne({ _id: id });
+  async readUser(email) {
+    const res = await this.userCollection.findOne({ email: email });
     return res;
   }
 
@@ -49,21 +51,22 @@ export class UserDatabase {
 
   // UPDATE a user in the database.
   async uploadPost(email, post ) {
-    const pictures = await this.userCollection.findOne({ email : email });
-    pictures.push(post);
+    const data = await this.userCollection.findOne({ email : email });
+    let arr = data.pictures;
+    arr.push(post);
     const res = await this.userCollection.updateOne(
       { email: email },
-      { $set: {pictures : pictures} }
+      { $set: {pictures : arr} }
     );
     return res;
   }
 
   // DELETE a user from the database.
-  async deleteUser(id) {
+  async deleteUser(email) {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
     // only contains the 'deletedCount' (and an acknowledged field).
-    const res = await this.userCollection.deleteOne({ _id: id });
+    const res = await this.userCollection.deleteOne({ email: email });
     return res;
   }
 
@@ -100,6 +103,15 @@ export class UserDatabase {
     if (res.pwd !== password) {
       return false; 
     }
+    this.user = res;
     return true;
+  }
+
+  getUser(){
+    return this.user;
+  }
+
+  logOut(){
+    this.user = null;
   }
 }
