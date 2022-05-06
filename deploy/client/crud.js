@@ -73,6 +73,14 @@ export async function readAllUser() {
     return data;
 }
 
+export async function readAllPost() {
+    const response = await fetch(`/post/all`, {
+        method: 'GET',
+    });
+    const data = await response.json();
+    return data;
+}
+
 export async function p_to_f(){
     const response = await fetch('/user/profile/feed', {
         method: 'GET',

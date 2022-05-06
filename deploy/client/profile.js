@@ -1,4 +1,13 @@
 import * as crud from './crud.js';
+
+async function loadFeed(){
+    const res = await fetch('/getUser')
+    return res.json();
+}
+
+const user = await loadFeed();
+const userEl = document.getElementById('user');
+
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';
 });

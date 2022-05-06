@@ -1,16 +1,24 @@
 import * as crud from './crud.js';
 
-async function loadFeed(){
+
+async function getUserInfo(){
     const res = await fetch('/getUser')
     return res.json();
 }
 
-const user = await loadFeed();
 const userEl = document.getElementById('user');
-userEl.innerHTML = user.name;
 const prof = document.getElementById("prof");
 const signout = document.getElementById("sout");
 const allPost = await crud.readAllPost();
+
+
+const feedImg = document.getElementById('feedImg');
+    
+if (allPost.length > 0){
+    feedImg.src = allPost[0].post;
+}
+const user = await getUserInfo();
+userEl.innerHTML = user.name;
 
 prof.addEventListener("click", () =>{
     window.location.href = "profile.html";
