@@ -38,6 +38,5 @@ document.getElementById('upload').addEventListener("click", async(e) =>{
 
 
 document.getElementById('delete').addEventListener('click', async(e) => {
-    await crud.deleteUser();
-    window.location.href = 'index.html';
+    window.location.href = 'delete.html';
 });
