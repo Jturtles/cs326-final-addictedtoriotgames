@@ -1,24 +1,3 @@
-//Need to make it so two forms can be submitted by one submit button
-import * as crud from './crud.js';
-//import fs from 'fs';
-// var fs = require('fs');
-
-// // function to encode file data to base64 encoded string
-// function base64_encode(file) {
-//     // read binary data
-//     var bitmap = fs.readFileSync(file, { encoding: 'base64' });
-//     return bitmap;
-//     // convert binary data to base64 encoded string
-//     //return new Buffer(bitmap).toString('base64');
-// }
-
-// document.getElementById("submit").addEventListener("click", async(e) =>{
-//     console.log(document.getElementById("picUpload").value);
-//     console.log(document.getElementById("picUpload"));
-//     console.log(pic);
-//     let pic = base64_encode(document.getElementById("picUpload").value);
-//     const post = await crud.uploadPost(email,pic);
-// })
 const uploadImage = document.getElementById('picUpload');
 
 document.getElementById('email').value = window.localStorage.getItem('user');
@@ -40,7 +19,7 @@ document.getElementById('delete').addEventListener('click', () =>{
     window.location.href = 'delete.html';
 });
 
-
+// sending the image taken in to be extracted and stored in the database
 uploadImage.onchange = evt => {
     const [file] = uploadImage.files;
     if(file){
