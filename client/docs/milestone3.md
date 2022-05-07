@@ -7,7 +7,7 @@
 ## Database Documentation
 
     
-    ![image](https://user-images.githubusercontent.com/74626828/167233330-aa72293f-60f3-45b8-b33c-a7081b9d43e5.png)
+![image](https://user-images.githubusercontent.com/74626828/167233330-aa72293f-60f3-45b8-b33c-a7081b9d43e5.png)
 
 
 This collection called Users stores User data. Each user consists of a username, name, password, email, and an array of pictures that the user has posted.
