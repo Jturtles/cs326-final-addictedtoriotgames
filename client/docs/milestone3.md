@@ -32,8 +32,6 @@ Steven Pham
 
     - Helped Setup database on MongoDB 
     
-    - Created Login and Signup Front-end
-    
     - Connected Login and Signup 
     
     - Added both respective routes to database
@@ -41,8 +39,6 @@ Steven Pham
 James Chen 
 
     - Assisted in deploying app to Heroku
-    
-    - Created Upload page front-end
     
     - Added upload functionality and connected upload
     
@@ -52,18 +48,14 @@ Aaron Cheng
 
     - Helped Setup database on MongoDB
     
-    - Created Feedpage front-end
-    
-    - Added Feedpage post generation functionality 
-    
     - Connected and created feedpage route to database.
+    
+    - Added Feedpage post retrieval functionality 
     
 Group Efforts -
 
     - Designing Databases
     
     - Route Planning
-    
-    - Website Conceptual Design
 
 Much of the programming was done in pairs, so the commit history does not reflect the division of labor accurately.

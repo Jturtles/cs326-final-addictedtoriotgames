@@ -63,6 +63,68 @@ James Chen
 ## Authentication/Authorization
 
 ## Division of Labor
+
+Jason Chen    
+
+    - Wireframe creation of Login and Upload pages
+
+    - Deployed website to Heroku 
+    
+    - Created Profile Front-End html and css
+    
+    - Connected Profile and added Profile Route to Databse
+
+
+Steven Pham 
+
+    - Wireframe creation of Profile page
+
+    - Helped Setup database on MongoDB 
+    
+    - Created Login and Signup html and css
+    
+    - Connected Login and Signup 
+    
+    - Added both respective routes to database
+
+James Chen 
+
+    - Wireframe creation of feed page
+    
+    - Assisted in deploying app to Heroku
+    
+    - Planned Upload route and the required API calls it needed.
+    
+    - Created Upload page html and css
+    
+    - Added upload functionality and connected upload
+    
+    - Created upload route to database.  
+
+Aaron Cheng 
+    
+    - Double checked and approved Wireframe designs
+
+    - Helped Setup database on MongoDB
+    
+    - Created Feedpage html and css
+    
+    - Added Feedpage post generation functionality 
+    
+    - Connected and created feedpage route to database.
+    
+Group Efforts -
+
+
+    - Designing Databases
+    
+    - Route Planning
+    
+    - Website Conceptual Design
+    
+    - .md file writing
+
+Much of the programming was done in pairs, so the commit history does not reflect the division of labor accurately.
     
 ## Conclusion
 
