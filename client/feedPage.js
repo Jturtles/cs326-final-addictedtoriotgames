@@ -23,7 +23,7 @@ const user = await crud.getUserInfo(window.localStorage.getItem('user'));
 
 loadFeed();
 
-userEl.innerHTML = user.name;
+userEl.innerHTML = "Welcome " + user.name + ".";
 
 prof.addEventListener("click", () =>{
     window.location.href = "profile.html";
