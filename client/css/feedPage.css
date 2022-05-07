@@ -9,6 +9,16 @@ body{
     margin: 0px;
     background-image: url(../images/minimalist-clothing.jpg);
 }
+h4 {
+    font-family: Poppins;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: normal;
+}
 .button{
     width: 15vh;
     height: 5vh;
