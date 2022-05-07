@@ -20,7 +20,34 @@ James Chen
 
 ## User Interface
 
+### Log in 
+![image](https://user-images.githubusercontent.com/74626828/167264553-6f353e1c-cf54-4933-b937-c88994a825c8.png)
+- Login allows for users to either redirect themselves to Sign up and register themselves to the site, or sign themselves into the website.
+
+### Sign up
+![image](https://user-images.githubusercontent.com/74626828/167264664-add7fe83-1c98-443d-83e7-974e26ae56ad.png)
+- Sign Up allows for users to create an account
+### Profile
+![image](https://user-images.githubusercontent.com/74626828/167264702-d59bcc90-194d-4435-930e-cf7821b55f63.png)
+- Profile contains a navigation bar which allows users to reach the feed, delete, upload, signout pages.
+- Displays all of the user's post history, profile picture, and personal information (name, email, etc.).
+### Feed
+![image](https://user-images.githubusercontent.com/74626828/167264736-120b477c-c70d-4b19-8a15-f7b4bde17e54.png)
+- Feed, like Profile, contains a navigation bar which allows users to reach profile, delete, upload, and signout pages.
+- Displays a single post from one of the users on the site which includes a picture of the outfit, posting user's username, date of post, and a description. 
+- Users can also cycle through different posts by clicking on the arrow button present on the side of the page.
+### Upload
+![image](https://user-images.githubusercontent.com/74626828/167264760-94cb80ad-6bcd-4446-bb20-bf94c54571d2.png)
+ - Also contains a navigation bar which allows users to reach profile, feed, delete, and signout pages.
+ - Users can upload their pictures (.jpg, .jpeg, .png) of their fits along withdescription describing them.
+### Delete
+![image](https://user-images.githubusercontent.com/74626828/167264775-059bd3e0-5e2c-4921-819e-6276b7cf71fa.png)
+- Contains a navigation bar which allows users to to reach profile, feed, upload, and signout pagess.
+- Holds a large red delete button which deletes the user's account and redirects the no-longer existing user to the login page.
+
+
 ## APIs
+- 
 
 ## Database
 
@@ -61,7 +88,8 @@ James Chen
 
 ## Division of Labor
 
-Jason Chen    
+Jason Chen 
+
 
     - Wireframe creation of Login and Upload pages
 
