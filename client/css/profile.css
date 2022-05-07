@@ -60,6 +60,12 @@ margin: 0px;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
+#uploadpfp {
+    background-color: rgb(54, 21, 0); 
+    font-family: Poppins;
+    color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
+} 
 
 
 
@@ -114,6 +120,9 @@ margin: 0px;
   }
 .nameContainer{
     /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     margin: 5%;
 }
 .username{
