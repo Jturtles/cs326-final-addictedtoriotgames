@@ -1,9 +1,8 @@
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
     background-color: white;
     /* padding: 10px; */
-    border-radius: 10px;
     grid-area: header;
 }
 /* .gridwrapper {
@@ -26,8 +25,8 @@ body{
     
 }
 #prof{
-    background-color: rgb(54, 21, 0); 
-    color: white; 
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
+    color: white;   
     font-family: Poppins;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
@@ -44,25 +43,25 @@ body{
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.462);
 }
 #fd {
-    background-color: rgb(54, 21, 0); 
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
     font-family: Poppins; 
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
 #upload {
-    background-color: rgb(54, 21, 0);  
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0)); 
     font-family: Poppins;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
 #sout {
-    background-color: rgb(54, 21, 0); 
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
     font-family: Poppins;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 } 
 #uploadpfp {
-    background-color: rgb(54, 21, 0); 
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
     font-family: Poppins;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
@@ -71,7 +70,7 @@ body{
 
 
 #delete {
-    background-color: rgb(54, 21, 0); 
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
     font-family: Poppins;
     color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
