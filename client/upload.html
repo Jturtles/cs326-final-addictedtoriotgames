@@ -38,11 +38,12 @@
           </div>
           <div class = right>
             <form class = uploadForm action="/upload" method="post" enctype="multipart/form-data">
-              <textarea class = "description" type="text" name="Description" rows = "10"cols = "30" placeholder="Describe your fit in detail"></textarea>
+              <textarea id = 'description' class = "description" type="text" name="Description" rows = "10"cols = "30" placeholder="Describe your fit in detail"></textarea>
               <br>
               <label for = "picUpload" id = "label" class="btn">Select Image</label>
+              <input id="email" type="hidden" name="email" value="">
               <input id = "picUpload" type = "file" style="visibility:hidden;" name = "upload" accept = "image/jpeg  , image/png"/>
-              <button class='submit' type = "submit">Submit</button>
+              <button id ='submit' class='submit' type = "submit">Submit</button>
           </form>
           </div>
         </div>

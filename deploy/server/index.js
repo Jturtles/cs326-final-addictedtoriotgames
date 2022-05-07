@@ -84,7 +84,8 @@ class UserServer {
 
     this.app.delete('/user/delete', async (req, res) => {
       try {
-        await self.db.deleteUser();
+        const {email} = req.body;
+        await self.db.deleteUser(email);
         res.status(200).send();
       } catch (err) {
         res.status(500).send(err);
@@ -134,12 +135,9 @@ class UserServer {
     this.app.post(
       '/login',
       async (req, res) => {
-        const { Email, Password } = req.body;
-        if (await this.db.validatePassword(Email, Password)) {
-          res.redirect('/feed');
-        } else {
-          res.redirect('/login');
-        }
+        const { email, password } = req.body;
+        const val = await this.db.validatePassword(email, password);
+        res.send(val);
       });
 
     // Handle logging out (takes us back to the login page).
@@ -148,8 +146,10 @@ class UserServer {
       res.redirect('/login'); // back to login
     });
 
-    this.app.get('/getUser', (req, res) => {
-      res.send(JSON.stringify(this.db.getUser()));
+    this.app.post('/getUser', async (req, res) => {
+      const {email} = req.body;
+      const user = await this.db.getUser(email);
+      res.send(JSON.stringify(user));
     });
     // Like login, but add a new user and password IFF one doesn't exist already.
     // If we successfully add a new user, go to /login, else, back to /register.

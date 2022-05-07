@@ -29,4 +29,7 @@ document.getElementById('prof').addEventListener("click", async(e) =>{
     window.location.href = 'profile.html';
 });
 
-
+document.getElementById('sout').addEventListener('click', ()=>{
+    window.localStorage.removeItem('user');
+    window.location.href = 'index.html';
+});

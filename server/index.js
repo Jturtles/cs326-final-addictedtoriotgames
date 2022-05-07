@@ -70,13 +70,18 @@ class UserServer {
         res.status(500).send(err);
       }
     });
+    
     this.app.post('/upload', this.upload.single('upload'), async (req, res) => {
       try {
+        console.log(req.file);
         const img = fs.readFileSync(req.file.path);
+        console.log('here1');
         const encode_img = img.toString('base64');
-        const {Description} = req.body;
-        await self.db.uploadPost(encode_img, req.file.mimetype, Description);
-        res.redirect('/feed');
+        console.log('here2');
+        console.log(req.body);
+        const {email, Description} = req.body;
+        await self.db.uploadPost(email, encode_img, req.file.mimetype, Description);
+        res.redirect('/profile');
       } catch (err) {
         res.status(500).send(err);
       }
@@ -164,11 +169,11 @@ class UserServer {
       }
     });
 
-    this.app.get('/feed', checkLoggedIn, (req, res) => {
+    this.app.get('/feed', (req, res) => {
       res.sendFile('client/feedPage.html', { root: this.__dirname })
     });
 
-    this.app.get('/profile', checkLoggedIn, (req, res) => {
+    this.app.get('/profile', (req, res) => {
       res.sendFile('client/profile.html', { root: this.__dirname })
     });
 

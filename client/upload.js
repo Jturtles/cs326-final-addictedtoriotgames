@@ -20,6 +20,7 @@ import * as crud from './crud.js';
 //     const post = await crud.uploadPost(email,pic);
 // })
 
+document.getElementById('email').value = window.localStorage.getItem('user');
 
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';

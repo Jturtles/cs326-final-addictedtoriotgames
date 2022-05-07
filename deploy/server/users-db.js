@@ -71,11 +71,11 @@ export class UserDatabase {
   }
 
   // DELETE a user from the database.
-  async deleteUser() {
+  async deleteUser(email) {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
     // only contains the 'deletedCount' (and an acknowledged field).
-    let arr = this.userCollection.findOne({ email: this.user.email});
+    let arr = this.userCollection.findOne({ email: email});
     let pictures = arr.pictures;
     let allpost = await this.postCollection.find({}).toArray();
     let deleteIDs = [];
@@ -88,7 +88,7 @@ export class UserDatabase {
     deleteIDs.forEach(async(id) => {
       await this.postCollection.deleteOne({ _id : id});
     })
-    await this.userCollection.deleteOne({ email: this.user.email });
+    await this.userCollection.deleteOne({ email: email });
     this.user = null;
   }
 
@@ -127,17 +127,17 @@ export class UserDatabase {
   async validatePassword(name, password) {
     const res = await this.userCollection.findOne({email:name});
     if(res === null){
-      return false;
+      return null;
     } 
     if (res.pwd !== password) {
-      return false; 
+      return null; 
     }
-    this.user = res;
-    return true;
+    return res;
   }
 
-  getUser(){
-    return this.user;
+  async getUser(email){
+    const res = await this.userCollection.findOne({email:email});
+    return res;
   }
 
   logOut(){

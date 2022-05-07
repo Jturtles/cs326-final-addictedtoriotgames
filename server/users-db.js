@@ -51,20 +51,19 @@ export class UserDatabase {
   }
 
   // UPDATE a user in the database.
-  async uploadPost(upload, type, Description) {
+  async uploadPost(email, upload, type, Description) {
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
-
     today = mm + '/' + dd + '/' + yyyy;
-    const data = await this.userCollection.findOne({ email : this.user.email });
+    const data = await this.userCollection.findOne({ email : email });
     let pictures = data.pictures;
-    const post = [upload, type, Description, this.user.name, today];
+    const post = [upload, type, Description, data.name, today];
     pictures.push(post);
     await this.userCollection.updateOne(
-      { email: this.user.email },
+      { email: email },
       { $set: {pictures} }
     );
     await this.postCollection.insertOne({post});
@@ -89,7 +88,6 @@ export class UserDatabase {
       await this.postCollection.deleteOne({ _id : id});
     })
     await this.userCollection.deleteOne({ email: email });
-    this.user = null;
   }
 
   // READ all people from the database.

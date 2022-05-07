@@ -39,18 +39,6 @@ export async function readUserPosts(email) {
     return data;
 }
 
-export async function uploadPost(email, post) {
-    const user = JSON.stringify({email, post});
-    const response = await fetch(`/user/upload`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type' : 'application/json',
-        },
-        body: user,
-    });
-    const data = await response.json();
-    return data;
-}
 
 export async function deleteUser(email) {
     const user = JSON.stringify({email});
