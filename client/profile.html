@@ -38,10 +38,14 @@
       <div class="mid">
         <div class="profileImage">
           <div class="imgContainer">
-            <img src="images/defaultpfp.png" alt="goku">
+            <img id='pfp' src="images/defaultpfp.png" alt="goku">
           </div>
           <div class="nameContainer">
-            <button id = "uploadpfp" type="submit" class="button">Upload</button>
+            <form action="/upload/pfp" method='post' enctype="multipart/form-data">
+              <input type="hidden" id="email" name= 'email' value="">
+              <input type="file" name = "uploadpfp" class="button" accept = "image/jpeg  , image/png , image/jpg">
+              <button type="submit">Submit</button>
+            </form>
             <p class="username" id="username">@kev.yen</p>
             <p class="name" id="name">Kevin Nguyen</p>
           </div>

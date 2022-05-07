@@ -48,7 +48,7 @@
           <form class = uploadForm action="/upload" method="post" enctype="multipart/form-data">
             <textarea class = "description" type="text" name="Description" rows = "20"cols = "55" placeholder="Describe your fit in detail."></textarea>
             <div class="submitCont">
-              <label disabled class="picUploadButton" for="picUpload"><input  class="submit" id = "picUpload" type = "file" name = "upload" accept = "image/jpeg  , image/png , image/jpg" />Upload</label>
+              <label disabled class="picUploadButton" for="picUpload"><input type="hidden" name='email' value="" id="email"><input  class="submit" id = "picUpload" type = "file" name = "upload" accept = "image/jpeg  , image/png , image/jpg" />Upload</label>
               <button class='submit' type = "submit">Submit</button>
             </div>
             <div class="supportCont"><p class = "support">Supported Files: .jpg, .jpeg, .png</p></div>

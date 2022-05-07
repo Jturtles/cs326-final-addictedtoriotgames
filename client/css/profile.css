@@ -201,3 +201,17 @@ body{
 .right{
     /* border: 1px solid black; */
 }
+
+.submit {
+    font-size: 1em;
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
+    color: white; 
+    font-family: Poppins;
+    width: 15.5vh;
+    height: 5.6vh;
+    border-radius: 2vh;  
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
+    border: 2px solid rgb(75, 75, 75);
+    margin-left: 10%;
+    margin-top: 3%;
+}

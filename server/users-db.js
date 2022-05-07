@@ -31,25 +31,6 @@ export class UserDatabase {
     this.client.close();
   }
 
-  // CREATE a user in the database.
-  async createUser(name, username, email, password) {
-    let pictures = [];
-    const res = await this.userCollection.insertOne({name, username, email, password, pictures });
-    return res;
-  }
-
-  // READ a user from the database.
-  async readUser(email) {
-    const res = await this.userCollection.findOne({ email: email });
-    return res;
-  }
-
-  async readUserPosts(email) {
-    const res = await this.userCollection.findOne({ email: email });
-    let posts = res.pictures;
-    return posts;
-  }
-
   // UPDATE a user in the database.
   async uploadPost(email, upload, type, Description) {
 
@@ -66,7 +47,15 @@ export class UserDatabase {
       { email: email },
       { $set: {pictures} }
     );
-    await this.postCollection.insertOne({post});
+    await this.postCollection.insertOne({post, email});
+  }
+
+  async uploadPFP(email, upload, type){
+    const pfp = [type, upload];
+    await this.userCollection.updateOne(
+      { email: email },
+      { $set: {pfp} }
+    );
   }
 
   // DELETE a user from the database.
@@ -74,26 +63,8 @@ export class UserDatabase {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
     // only contains the 'deletedCount' (and an acknowledged field).
-    let arr = this.userCollection.findOne({ email: email});
-    let pictures = arr.pictures;
-    let allpost = await this.postCollection.find({}).toArray();
-    let deleteIDs = [];
-    pictures.forEach(pic => {
-      let index = allpost.indexOf(pic);
-      if(index != -1){
-        deleteIDs.push(allpost[index]._id);
-      }
-    })
-    deleteIDs.forEach(async(id) => {
-      await this.postCollection.deleteOne({ _id : id});
-    })
+    await this.postCollection.deleteMany({email:email});
     await this.userCollection.deleteOne({ email: email });
-  }
-
-  // READ all people from the database.
-  async readAllUsers() {
-    const res = await this.userCollection.find({}).toArray();
-    return res;
   }
 
   // READ all posts from the database.
@@ -107,7 +78,7 @@ export class UserDatabase {
     if (await this.findUser(name)) {
       return false;
     }
-    await this.userCollection.insertOne({name, realname, pwd, email, pictures:[]});
+    await this.userCollection.insertOne({name, realname, pwd, email, pictures:[], pfp:null});
     return true;
   }
 
@@ -125,10 +96,10 @@ export class UserDatabase {
   async validatePassword(name, password) {
     const res = await this.userCollection.findOne({email:name});
     if(res === null){
-      return null;
+      return [];
     } 
     if (res.pwd !== password) {
-      return null; 
+      return []; 
     }
     return res;
   }
@@ -136,9 +107,5 @@ export class UserDatabase {
   async getUser(email){
     const res = await this.userCollection.findOne({email:email});
     return res;
-  }
-
-  logOut(){
-    this.user = null;
   }
 }

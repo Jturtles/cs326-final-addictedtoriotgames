@@ -34,3 +34,7 @@ document.getElementById('sout').addEventListener('click', ()=>{
     window.localStorage.removeItem('user');
     window.location.href = 'index.html';
 });
+
+document.getElementById('delete').addEventListener('click', () =>{
+    window.location.href = 'delete.html';
+});

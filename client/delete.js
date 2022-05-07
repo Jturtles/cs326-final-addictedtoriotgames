@@ -10,7 +10,6 @@ document.getElementById('upload').addEventListener("click", async(e) =>{
     window.location.href = 'upload.html';
 });
 
-
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';
 });
