@@ -75,6 +75,19 @@ export class UserDatabase {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
     // only contains the 'deletedCount' (and an acknowledged field).
+    let arr = this.userCollection.findOne({ email: this.user.email});
+    let pictures = arr.pictures;
+    let allpost = await this.postCollection.find({}).toArray();
+    let deleteIDs = [];
+    pictures.forEach(pic => {
+      let index = allpost.indexOf(pic);
+      if(index != -1){
+        deleteIDs.push(allpost[index]._id);
+      }
+    })
+    deleteIDs.forEach(id => {
+      await this.postCollection.deleteOne({ _id : id});
+    })
     await this.userCollection.deleteOne({ email: this.user.email });
     this.user = null;
   }
