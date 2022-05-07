@@ -44,21 +44,18 @@ James Chen
 
 ## URL Routes/Mappings
 
-- /user/create 
-- /user/read
-- /user/read/post
-- /user/delete
-- /user/all
-- /post/all
-- /upload
-- /login
-- /logout
-- /getUser
-- /signUp
-- /feed
-- /profile
-
-
+- /user/delete - Deletes User from User Collection
+- /post/all - Gets all posts from Post Collection
+- /upload - Uploads picture and picture information into User's Pictures Element and Post Collection
+- /login (GET) - Directs user to feed page.
+- /login (POST) - Authenticates the User logging in
+- /logout - Logs user out of the website
+- /getUser - Retrieves tuple about the user from User collection
+- /signUp (GET) - Directs user to SignUp Page
+- /signUp (POST) - Creates user
+- /feed - Redirects to Feed page
+- /profile - Redirects to Profile page
+- /uploadpfp - Uploads a profile picture
 
 ## Authentication/Authorization
 
@@ -114,7 +111,6 @@ Aaron Cheng
     - Connected and created feedpage route to database.
     
 Group Efforts -
-
 
     - Designing Databases
     
