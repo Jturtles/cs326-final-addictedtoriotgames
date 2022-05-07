@@ -35,7 +35,7 @@ James Chen
 ![image](https://user-images.githubusercontent.com/74626828/167264736-120b477c-c70d-4b19-8a15-f7b4bde17e54.png)
 - Feed, like Profile, contains a navigation bar which allows users to reach profile, delete, upload, and signout pages.
 - Displays a single post from one of the users on the site which includes a picture of the outfit, posting user's username, date of post, and a description. 
-- Users can also cycle through different posts by clicking on the arrow button present on the side of the page.
+- Users can also cycle through different posts by clicking on the arrow buttons present on the side of the page.
 ### Upload
 ![image](https://user-images.githubusercontent.com/74626828/167264760-94cb80ad-6bcd-4446-bb20-bf94c54571d2.png)
  - Also contains a navigation bar which allows users to reach profile, feed, delete, and signout pages.
@@ -48,6 +48,13 @@ James Chen
 
 ## APIs
 - DeleteUser - Deletes User from User Collection
+- ReadAllPosts - Gets all posts from the database.
+- AddUser - Takes information submitted by new user and creates the user in the database
+- FindUser - Checks if user exists in user collection.
+- ValidatePassword - Authenticates User when User tries to log in
+- UploadPost - Uploads a post into User collection's Picture Array (under the user's ID) as well as the Post collection
+- UploadPFP - Uploads profile picture of the user to the User collection's Picture Array.
+- GetUser - Gets information about User by email.
 
 ## Database
 
@@ -64,7 +71,7 @@ James Chen
 - post - Array containing the following Picture info:
 
 - String containing image 
-- Image Location
+- Image file type
 - Description 
 - Posting User Account Username
 - Date of Upload
@@ -72,20 +79,22 @@ James Chen
 ## URL Routes/Mappings
 
 - /user/delete - Calls DeleteUser API
-- /post/all - Gets all posts from Post Collection
-- /upload - Uploads picture and picture information into User's Pictures Element and Post Collection
+- /post/all - Calls readallPost API
+- /upload - Calls uploadPost API
 - /login (GET) - Directs user to feed page.
-- /login (POST) - Authenticates the User logging in
+ - /login (POST) - Calls validatePassword API
 - /logout - Logs user out of the website
-- /getUser - Retrieves tuple about the user from User collection
+- /getUser - Calls GetUser API
 - /signUp (GET) - Directs user to SignUp Page
-- /signUp (POST) - Creates user
+- /signUp (POST) - Calls AddUser API
 - /feed - Redirects to Feed page
 - /profile - Redirects to Profile page
-- /uploadpfp - Uploads a profile picture
+- /uploadpfp - Calls UploadPFP API
 
 ## Authentication/Authorization
-
+ - Authentication occurs in the login page. When the user tries to sign in, we take the email and password, and we check the User collection to see if it exists and
+   we check if the entered password matches the password in the collection, and allow them into the site if they do.
+ - Special users permissions only allow for users to see their own posts in profile.
 ## Division of Labor
 
 Jason Chen 
@@ -151,4 +160,4 @@ Group Efforts -
 Much of the programming was done in pairs, so the commit history does not reflect the division of labor accurately.
     
 ## Conclusion
-
+Our project experience had a couple roadblocks, but allowed us to build upon our developer and team work skills. We faced difficulties in communicating with each other in terms of how to split the work up. It showed us that the best way was to use pair programming for code to be written in a more concise and effective manner. The design and planning process taught us all how crucial it was to have a plan of action before jumping into coding as many times we caught ourselves going back on what we decided or just being lost in general in terms of how we wanted to implement certain features. By the end of the project, we were all able learn how to set up a database, build a server to serve all frontend calls, and create cool pages that we can show off. We learned a lot from our mistakes and have all become better engineers for it.
