@@ -35,7 +35,7 @@ James Chen
 ![image](https://user-images.githubusercontent.com/74626828/167264736-120b477c-c70d-4b19-8a15-f7b4bde17e54.png)
 - Feed, like Profile, contains a navigation bar which allows users to reach profile, delete, upload, and signout pages.
 - Displays a single post from one of the users on the site which includes a picture of the outfit, posting user's username, date of post, and a description. 
-- Users can also cycle through different posts by clicking on the arrow button present on the side of the page.
+- Users can also cycle through different posts by clicking on the arrow buttons present on the side of the page.
 ### Upload
 ![image](https://user-images.githubusercontent.com/74626828/167264760-94cb80ad-6bcd-4446-bb20-bf94c54571d2.png)
  - Also contains a navigation bar which allows users to reach profile, feed, delete, and signout pages.
