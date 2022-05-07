@@ -85,7 +85,7 @@ export class UserDatabase {
         deleteIDs.push(allpost[index]._id);
       }
     })
-    deleteIDs.forEach(id => {
+    deleteIDs.forEach(async(id) => {
       await this.postCollection.deleteOne({ _id : id});
     })
     await this.userCollection.deleteOne({ email: this.user.email });
