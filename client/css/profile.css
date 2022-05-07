@@ -120,11 +120,31 @@ body{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.478);
   }
 .nameContainer{
-    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 5%;
+    
+}
+.bottomForm {
+    display: grid;
+    grid-template-rows: 10fr 1fr 1fr;
+}
+.formCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    margin: 5%;
+
+}
+.uploadForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .username{
     font-family: Poppins;
@@ -202,6 +222,9 @@ body{
     /* border: 1px solid black; */
 }
 
+input[type="file"] {
+    display: none;
+}
 .submit {
     font-size: 1em;
     background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
@@ -213,5 +236,24 @@ body{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
     border: 2px solid rgb(75, 75, 75);
     margin-left: 10%;
-    margin-top: 3%;
+}
+.picUploadButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
+    color: white; 
+    font-family: Poppins;
+    width: 15vh;
+    height: 5vh;
+    border-radius: 2vh;  
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
+    border: 2px solid rgb(75, 75, 75);
+}
+.usernameCont {
+    margin-left: 5%;
+}
+.nameCont {
+    margin-left: 5%;
 }
