@@ -48,6 +48,13 @@ James Chen
 
 ## APIs
 - DeleteUser - Deletes User from User Collection
+- ReadAllPosts - Gets all posts from the database.
+- AddUser - Takes information submitted by new user and creates the user in the database
+- FindUser - Checks if user exists in user collection.
+- ValidatePassword - Authenticates User when User tries to log in
+- UploadPost - Uploads a post into User collection's Picture Array (under the user's ID) as well as the Post collection
+- UploadPFP - Uploads profile picture of the user to the User collection's Picture Array.
+- GetUser - Gets information about User by email.
 
 ## Database
 
@@ -64,7 +71,7 @@ James Chen
 - post - Array containing the following Picture info:
 
 - String containing image 
-- Image Location
+- Image file type
 - Description 
 - Posting User Account Username
 - Date of Upload
@@ -72,20 +79,22 @@ James Chen
 ## URL Routes/Mappings
 
 - /user/delete - Calls DeleteUser API
-- /post/all - Gets all posts from Post Collection
-- /upload - Uploads picture and picture information into User's Pictures Element and Post Collection
+- /post/all - Calls readallPost API
+- /upload - Calls uploadPost API
 - /login (GET) - Directs user to feed page.
-- /login (POST) - Authenticates the User logging in
+ - /login (POST) - Calls validatePassword API
 - /logout - Logs user out of the website
-- /getUser - Retrieves tuple about the user from User collection
+- /getUser - Calls GetUser API
 - /signUp (GET) - Directs user to SignUp Page
-- /signUp (POST) - Creates user
+- /signUp (POST) - Calls AddUser API
 - /feed - Redirects to Feed page
 - /profile - Redirects to Profile page
-- /uploadpfp - Uploads a profile picture
+- /uploadpfp - Calls UploadPFP API
 
 ## Authentication/Authorization
-
+ - Authentication occurs in the login page. When the user tries to sign in, we take the email and password, and we check the User collection to see if it exists and
+   we check if the entered password matches the password in the collection, and allow them into the site if they do.
+ - Special users permissions only allow for users to see their own posts in profile.
 ## Division of Labor
 
 Jason Chen 
@@ -151,4 +160,5 @@ Group Efforts -
 Much of the programming was done in pairs, so the commit history does not reflect the division of labor accurately.
     
 ## Conclusion
+
 
