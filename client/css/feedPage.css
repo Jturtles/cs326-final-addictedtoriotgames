@@ -81,10 +81,11 @@ h4 {
 .bottomGrid {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    height: 85vh;
+    height: 100vh;
 
 }
 .left{
+    background-color: rgba(255, 255, 255, 0.229);
     display:flex;
     justify-content: center;
     align-items: center;
@@ -201,6 +202,7 @@ h4 {
     margin-right: 5%;
 }
 .right{
+    background-color: rgba(255, 255, 255, 0.229);
     display:flex;
     justify-content: center;
     align-items: center;
