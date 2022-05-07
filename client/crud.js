@@ -1,4 +1,4 @@
-  
+
 export async function readUser(email, password) {
     const user = JSON.stringify({email, password});
     const response = await fetch(`/login`, {
