@@ -47,7 +47,7 @@ James Chen
 
 
 ## APIs
-- 
+- DeleteUser - Deletes User from User Collection
 
 ## Database
 
@@ -71,7 +71,7 @@ James Chen
 
 ## URL Routes/Mappings
 
-- /user/delete - Deletes User from User Collection
+- /user/delete - Calls DeleteUser API
 - /post/all - Gets all posts from Post Collection
 - /upload - Uploads picture and picture information into User's Pictures Element and Post Collection
 - /login (GET) - Directs user to feed page.
