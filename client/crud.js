@@ -12,10 +12,10 @@ export async function createUser(name, email, username, password, pictures) {
     return data;
 }
   
-export async function readUser(id) {
-    const user = JSON.stringify({id});
-    const response = await fetch(`/user/read`, {
-        method: 'GET',
+export async function readUser(email, password) {
+    const user = JSON.stringify({email, password});
+    const response = await fetch(`/login`, {
+        method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
         },
@@ -82,8 +82,15 @@ export async function p_to_f(){
     return data;
 }
 
-export async function getUserInfo(){
-    const res = await fetch('/getUser')
+export async function getUserInfo(email){
+    const user = JSON.stringify({email});
+    const res = await fetch('/getUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: user,
+    })
     return res.json();
 }
 

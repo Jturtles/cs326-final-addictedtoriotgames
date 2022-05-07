@@ -4,6 +4,7 @@ const userEl = document.getElementById('user');
 const prof = document.getElementById("prof");
 const allPost = await crud.readAllPost();
 const feedImg = document.getElementById('feedImg');
+
 let count = allPost.length - 1;
 
 function loadFeed(){
@@ -18,7 +19,7 @@ function loadFeed(){
         feedImg.sr = "//:0";
     }
 }
-const user = await crud.getUserInfo();
+const user = await crud.getUserInfo(window.localStorage.getItem('user'));
 
 loadFeed();
 
@@ -49,4 +50,9 @@ document.getElementById('previous').addEventListener('click', () =>{
         count += 1;
     }
     loadFeed()
+});
+
+document.getElementById('sout').addEventListener('click', ()=>{
+    window.localStorage.removeItem('user');
+    window.location.href = 'index.html';
 });

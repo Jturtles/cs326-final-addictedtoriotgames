@@ -127,17 +127,17 @@ export class UserDatabase {
   async validatePassword(name, password) {
     const res = await this.userCollection.findOne({email:name});
     if(res === null){
-      return false;
+      return null;
     } 
     if (res.pwd !== password) {
-      return false; 
+      return null; 
     }
-    this.user = res;
-    return true;
+    return res;
   }
 
-  getUser(){
-    return this.user;
+  async getUser(email){
+    const res = await this.userCollection.findOne({email:email});
+    return res;
   }
 
   logOut(){

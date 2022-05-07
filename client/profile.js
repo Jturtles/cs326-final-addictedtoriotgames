@@ -1,7 +1,7 @@
 import * as crud from './crud.js';
 
 
-const user = await crud.getUserInfo();
+const user = await crud.getUserInfo(window.localStorage.getItem('user'));
 const pictures = document.getElementById('photoloc');
 function loadProfile(){
     let count = 0;
@@ -39,4 +39,9 @@ document.getElementById('upload').addEventListener("click", async(e) =>{
 
 document.getElementById('delete').addEventListener('click', async(e) => {
     window.location.href = 'delete.html';
+});
+
+document.getElementById('sout').addEventListener('click', ()=>{
+    window.localStorage.removeItem('user');
+    window.location.href = 'index.html';
 });
