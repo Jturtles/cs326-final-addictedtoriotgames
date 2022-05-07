@@ -31,7 +31,7 @@ export class UserDatabase {
     this.client.close();
   }
 
-  // UPDATE a user in the database.
+  // upload post to user in user collection and add a post in post collection
   async uploadPost(email, upload, type, Description) {
 
     var today = new Date();
@@ -50,6 +50,7 @@ export class UserDatabase {
     await this.postCollection.insertOne({post, email});
   }
 
+  // upload profile pic of user to usercollection
   async uploadPFP(email, upload, type){
     const pfp = [type, upload];
     await this.userCollection.updateOne(
@@ -58,7 +59,7 @@ export class UserDatabase {
     );
   }
 
-  // DELETE a user from the database.
+  // delete an entire user and all of their posts from the post collection
   async deleteUser(email) {
     // Note: the result received back from MongoDB does not contain the
     // entire document that was deleted from the database. Instead, it
@@ -67,13 +68,13 @@ export class UserDatabase {
     await this.userCollection.deleteOne({ email: email });
   }
 
-  // READ all posts from the database.
+  // read all posts from the post collection
   async readAllPosts() {
     const res = await this.postCollection.find({}).toArray();
     return res;
   }
 
-  // Add a user to the "database".
+  // create a new user and add it to the user collection
   async addUser(email, realname, name, pwd) {
     if (await this.findUser(name)) {
       return false;
@@ -82,6 +83,7 @@ export class UserDatabase {
     return true;
   }
 
+  // if the user exists in the user collection
   async findUser(username) {
     const res = await this.userCollection.findOne({name:username});
     if(res != null){
@@ -104,6 +106,7 @@ export class UserDatabase {
     return res;
   }
 
+  // gets the user info given an email
   async getUser(email){
     const res = await this.userCollection.findOne({email:email});
     return res;
