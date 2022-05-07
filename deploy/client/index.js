@@ -9,8 +9,7 @@ signup.addEventListener("click", () =>{
 log.addEventListener('click', async () => {
 
     const val = await crud.readUser(document.getElementById('email').value, document.getElementById('password').value);
-    console.log(val);
-    if(val === null){
+    if(val.length === 0){
         alert("Incorrect Login info");
     } else{
         window.localStorage.setItem('user', val.email);

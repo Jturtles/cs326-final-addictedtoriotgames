@@ -4,16 +4,19 @@ const userEl = document.getElementById('user');
 const prof = document.getElementById("prof");
 const allPost = await crud.readAllPost();
 const feedImg = document.getElementById('feedImg');
-
 let count = allPost.length - 1;
 
-function loadFeed(){
+async function loadFeed(){
     if (allPost.length > 0){
         if(count >= 0 && count < allPost.length){
             feedImg.src = `data:${allPost[count].post[1]};base64, ` + allPost[count].post[0];
             document.getElementById('description').innerHTML = allPost[count].post[2];
             document.getElementById('profileName').innerHTML = allPost[count].post[3];
             document.getElementById('date').innerHTML = allPost[count].post[4];
+            const posterPFP = await crud.getUserInfo(allPost[count].email);
+            if(posterPFP.pfp !== null){
+                document.getElementById('pfp').src = `data:${posterPFP.pfp[0]};base64, ` + posterPFP.pfp[1];
+            }
         }
     } else{
         feedImg.sr = "//:0";
@@ -21,9 +24,9 @@ function loadFeed(){
 }
 const user = await crud.getUserInfo(window.localStorage.getItem('user'));
 
-loadFeed();
+await loadFeed();
 
-userEl.innerHTML = user.name;
+userEl.innerHTML = "Welcome " + user.name + ".";
 
 prof.addEventListener("click", () =>{
     window.location.href = "profile.html";

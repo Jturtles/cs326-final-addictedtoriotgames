@@ -18,10 +18,14 @@ function loadProfile(){
         photoDiv.appendChild(pic);
         pictures.appendChild(photoDiv);
     }
+    if(user.pfp !== null){
+        document.getElementById('pfp').src = `data:${user.pfp[0]};base64, ` + user.pfp[1];
+    }
 }
 
 document.getElementById('username').innerHTML = user.name;
 document.getElementById('name').innerHTML = user.realname;
+document.getElementById('email').value = user.email;
 loadProfile();
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';

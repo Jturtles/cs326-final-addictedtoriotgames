@@ -20,6 +20,7 @@ import * as crud from './crud.js';
 //     const post = await crud.uploadPost(email,pic);
 // })
 
+document.getElementById('email').value = window.localStorage.getItem('user');
 
 document.getElementById('fd').addEventListener("click", async(e) =>{
     window.location.href = 'feedPage.html';
@@ -32,4 +33,8 @@ document.getElementById('prof').addEventListener("click", async(e) =>{
 document.getElementById('sout').addEventListener('click', ()=>{
     window.localStorage.removeItem('user');
     window.location.href = 'index.html';
+});
+
+document.getElementById('delete').addEventListener('click', () =>{
+    window.location.href = 'delete.html';
 });

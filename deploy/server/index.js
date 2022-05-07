@@ -40,43 +40,14 @@ class UserServer {
   async initRoutes() {
     // Note: when using arrow functions, the "this" binding is lost.
     const self = this;
-
-    this.app.post('/user/create', async (req, res) => {
-      try {
-        const {name, username, email, password } = req.body;
-        const user = await self.db.createUser(name, username, email, password);
-        res.send(JSON.stringify(user));
-      } catch (err) {
-        res.status(500).send(err);
-      }
-    });
-
-    this.app.get('/user/read', async (req, res) => {
-      try {
-        const { id } = req.body;
-        const user = await self.db.readUser(id);
-        res.send(JSON.stringify(user));
-      } catch (err) {
-        res.status(500).send(err);
-      }
-    });
-
-    this.app.get('/user/read/post', async (req, res) => {
-      try {
-        const { email } = req.body;
-        const user = await self.db.readUserPosts(email);
-        res.send(JSON.stringify(user));
-      } catch (err) {
-        res.status(500).send(err);
-      }
-    });
+    
     this.app.post('/upload', this.upload.single('upload'), async (req, res) => {
       try {
         const img = fs.readFileSync(req.file.path);
         const encode_img = img.toString('base64');
-        const {Description} = req.body;
-        await self.db.uploadPost(encode_img, req.file.mimetype, Description);
-        res.redirect('/feed');
+        const {email, Description} = req.body;
+        await self.db.uploadPost(email, encode_img, req.file.mimetype, Description);
+        res.redirect('/profile');
       } catch (err) {
         res.status(500).send(err);
       }
@@ -92,15 +63,6 @@ class UserServer {
       }
     });
 
-    this.app.get('/user/all', async (req, res) => {
-      try {
-        const user = await self.db.readAllUsers();
-        res.send(JSON.stringify(user));
-      } catch (err) {
-        res.status(500).send(err);
-      }
-    });
-
     this.app.get('/post/all', async (req, res) => {
       try {
         const post = await self.db.readAllPosts();
@@ -109,7 +71,6 @@ class UserServer {
         res.status(500).send(err);
       }
     });
-    
 
     // Our own middleware to check if the user is authenticated
     function checkLoggedIn(req, res, next) {
@@ -140,11 +101,6 @@ class UserServer {
         res.send(val);
       });
 
-    // Handle logging out (takes us back to the login page).
-    this.app.get('/logout', (req, res) => {
-      this.db.logOut(); // Logs us out!
-      res.redirect('/login'); // back to login
-    });
 
     this.app.post('/getUser', async (req, res) => {
       const {email} = req.body;
@@ -164,11 +120,11 @@ class UserServer {
       }
     });
 
-    this.app.get('/feed', checkLoggedIn, (req, res) => {
+    this.app.get('/feed', (req, res) => {
       res.sendFile('client/feedPage.html', { root: this.__dirname })
     });
 
-    this.app.get('/profile', checkLoggedIn, (req, res) => {
+    this.app.get('/profile', (req, res) => {
       res.sendFile('client/profile.html', { root: this.__dirname })
     });
 
@@ -177,29 +133,18 @@ class UserServer {
       res.sendFile('client/signUp.html', { root: this.__dirname })
     );
 
-    // Private data
-    this.app.get(
-      '/private',
-      checkLoggedIn, // If we are logged in (notice the comma!)...
-      (req, res) => {
-        // Go to the user's page.
-        res.redirect('/private/' + req.user);
+    this.app.post('/upload/pfp', this.upload.single('uploadpfp'), async (req, res) => {
+      try {
+        const img = fs.readFileSync(req.file.path);
+        const encode_img = img.toString('base64');
+        const {email} = req.body;
+        await self.db.uploadPFP(email, encode_img, req.file.mimetype);
+        res.redirect('/profile');
+      } catch (err) {
+        res.status(500).send(err);
       }
-    );
+    });
 
-    // A dummy page for the user.
-    this.app.get(
-      '/private/:userID/',
-      checkLoggedIn, // We also protect this route: authenticated...
-      (req, res) => {
-        // Verify this is the right user.
-        if (req.params.userID === req.user) {
-
-        } else {
-          res.redirect('/private/');
-        }
-      }
-    );
 
     this.app.get('*', (req, res) => {
       res.send('Error');

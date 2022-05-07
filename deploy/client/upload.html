@@ -1,52 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/upload.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   
+    <title>Profile</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/upload.css" />
     <script type="module" src="upload.js"></script>
-    <title>Upload</title>
+
+       <!-- Google Fonts -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&family=Arvo&family=Poppins:wght@200;400;500&family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
   </head>
   <body>
-
     <div class="gridwrapper">
       <header>
-          <button id = "prof" type="button" class="profile">Profile</button>
-          <button id = "fd" type="button" class="feed">Feed</button>
-          <button type="button" class="upload">Upload</button>
-          <h1 class="logo">FOTD</h1>
-          <button id = "sout"type="submit" class="signout">Sign Out</button>
-      </header>
-      <div class = "mid">
-        <div class = square>
-          <div class = left>
-            <span class="material-icons" id = "uploadIcon">upload_file</span>
-              </style>
-            <p class = "support">Supported Files: All Image Files</p>
-          </div>
-          <div class = right>
-            <form class = uploadForm action="/upload" method="post" enctype="multipart/form-data">
-              <textarea class = "description" type="text" name="Description" rows = "10"cols = "30" placeholder="Describe your fit in detail"></textarea>
-              <br>
-              <label for = "picUpload" id = "label" class="btn">Select Image</label>
-              <input id = "picUpload" type = "file" style="visibility:hidden;" name = "upload" accept = "image/jpeg  , image/png"/>
-              <button class='submit' type = "submit">Submit</button>
-          </form>
+        <div class="test">
+          <h1 id = "logo" class="logo">FOTD</h1>
+        </div>
+        <div class="test">
+          <button id = "prof" type="button" class="button">Profile</button>
+        </div>
+        <div class="test">
+          <button id = "fd"type="button" class="button">Feed</button>
+        </div>
+        <div class="test">
+          <button id = "upload" type="button" class="button">Upload</button>
+        </div>
+        <div class="test">
+          <button id ="delete" type="button" class="button">Delete</button>
+        </div>
+        <div class="test">
+          <button id = "sout"type="submit" class="button">Sign Out</button>
+        </div>
+    </header>
+    <div class="bottomGrid">
+      <div class="test2"></div>
+      <div class="mid">
+        <div class="leftBox">
+          <div class="picUploadCont">
+            <span class="material-icons" id = "uploadIcon"><img id="uploadImg"class="uploadImg" src="images/imageupload.png"></span>
+            <div class="uploadDescCont">
+              <p class ="uploadDesc">Upload your fit of the day!</p>
+            </div>
           </div>
         </div>
+        <div class="rightBox">
+          <form class = uploadForm action="/upload" method="post" enctype="multipart/form-data">
+            <textarea class = "description" type="text" name="Description" rows = "20"cols = "55" placeholder="Describe your fit in detail."></textarea>
+            <div class="submitCont">
+              <label disabled class="picUploadButton" for="picUpload"><input type="hidden" name='email' value="" id="email"><input  class="submit" id = "picUpload" type = "file" name = "upload" accept = "image/jpeg  , image/png , image/jpg" />Upload</label>
+              <button class='submit' type = "submit">Submit</button>
+            </div>
+            <div class="supportCont"><p class = "support">Supported Files: .jpg, .jpeg, .png</p></div>
+        </form>
+        </div>
       </div>
-    </div> 
+      <div class="test2"></div>
+    </div>
+  </div>
   </body>
 </html>

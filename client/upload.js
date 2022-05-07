@@ -19,6 +19,7 @@ import * as crud from './crud.js';
 //     let pic = base64_encode(document.getElementById("picUpload").value);
 //     const post = await crud.uploadPost(email,pic);
 // })
+const uploadImage = document.getElementById('picUpload');
 
 document.getElementById('email').value = window.localStorage.getItem('user');
 
@@ -38,3 +39,11 @@ document.getElementById('sout').addEventListener('click', ()=>{
 document.getElementById('delete').addEventListener('click', () =>{
     window.location.href = 'delete.html';
 });
+
+
+uploadImage.onchange = evt => {
+    const [file] = uploadImage.files;
+    if(file){
+        document.getElementById('uploadImg').src = URL.createObjectURL(file);
+    }
+}
