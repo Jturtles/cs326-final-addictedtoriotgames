@@ -1,7 +1,8 @@
 import * as crud from './crud.js';
 
 document.getElementById("deleteAccount").addEventListener("click", async () => {
-    await crud.deleteUser();
+    let user = window.localStorage.getItem('user');
+    await crud.deleteUser(user);
     window.location.href = 'index.html';
 });
 
