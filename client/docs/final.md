@@ -163,7 +163,7 @@ Group Efforts -
 Much of the programming was done in pairs, so the commit history does not reflect the division of labor accurately.
 
 ## RUBIC
-image.png
+![image](https://user-images.githubusercontent.com/93846874/167278517-d8f19233-3628-4b08-ae17-6835fc36998c.png)
 
 ## Conclusion
 Our project experience had a couple roadblocks, but allowed us to build upon our developer and team work skills. We faced difficulties in communicating with each other in terms of how to split the work up. It showed us that the best way was to use pair programming for code to be written in a more concise and effective manner. The design and planning process taught us all how crucial it was to have a plan of action before jumping into coding as many times we caught ourselves going back on what we decided or just being lost in general in terms of how we wanted to implement certain features. By the end of the project, we were all able learn how to set up a database, build a server to serve all frontend calls, and create cool pages that we can show off. We learned a lot from our mistakes and have all become better engineers for it.
