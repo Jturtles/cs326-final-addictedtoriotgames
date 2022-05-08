@@ -6,7 +6,7 @@
 ## Link
 https://fit-of-the-day.herokuapp.com/
 
-### Overview
+## Overview
 
 Have you ever wanted to show off your outfit for the world to see? Fit Of The Day allows people to connect and present their personal syle daily. 
 Users can create accounts and look at unique Fits influenced by trends and cultures from  all over the world. Our website Fit Of The Day also allows people to store their looks in a 'fit history', and delete any which they don't like.
