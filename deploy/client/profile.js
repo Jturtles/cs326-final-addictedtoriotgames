@@ -1,5 +1,8 @@
 import * as crud from './crud.js';
 
+if(window.localStorage.getItem('user') === null){
+    window.location.href = 'index.html';
+}
 
 const user = await crud.getUserInfo(window.localStorage.getItem('user'));
 const pictures = document.getElementById('photoloc');

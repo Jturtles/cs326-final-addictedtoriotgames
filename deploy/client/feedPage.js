@@ -1,10 +1,15 @@
 import * as crud from './crud.js';
 
+if(window.localStorage.getItem('user') === null){
+    window.location.href = 'index.html';
+}
+
 const userEl = document.getElementById('user');
 const prof = document.getElementById("prof");
 const allPost = await crud.readAllPost();
 const feedImg = document.getElementById('feedImg');
 let count = allPost.length - 1;
+
 
 async function loadFeed(){
     if (allPost.length > 0){

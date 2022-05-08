@@ -1,3 +1,7 @@
+if(window.localStorage.getItem('user') === null){
+    window.location.href = 'index.html';
+}
+
 const uploadImage = document.getElementById('picUpload');
 
 document.getElementById('email').value = window.localStorage.getItem('user');
