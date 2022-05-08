@@ -2,7 +2,8 @@
 # AddictedToRiotGames
 ## Fit Of The Day (FOTD)
 ## Spring 2022
-
+## Link
+https://fit-of-the-day.herokuapp.com/
 ### Overview
 
 Have you ever wanted to show off your outfit for the world to see? Fit Of The Day allows people to connect and present their personal syle daily. 

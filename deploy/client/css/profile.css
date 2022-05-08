@@ -2,16 +2,8 @@ header {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
     background-color: white;
-    /* padding: 10px; */
     grid-area: header;
 }
-/* .gridwrapper {
-    font-family: Arial;
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
-    grid-auto-rows: 1fr 9fr;
-} */
 body{
     background-color: #E5E5E5;
     margin: 0px;
@@ -76,7 +68,6 @@ body{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375);
 }
 .test {
-    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,21 +77,16 @@ body{
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     height: 85vh;
-
-}
-.left{
-    /* border: 1px solid black; */
 }
 .mid{
-    /* border: 1px solid black; */
     display: grid;
     grid-template-columns: 3fr 5fr;
 }
 .profileImage {
+    
     margin-top: 5%;
     background-color: rgba(255, 255, 255, 0.495);
     border-radius: 10px;
-    /* border: 1px solid black;  */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 7fr 3fr;
@@ -109,47 +95,61 @@ body{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.478);
 }
 .imgContainer{
-    /* border: 1px solid black; */
     margin: 5%;
 }
 .imgContainer > img {
     object-fit: cover;
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    max-width: 100%;
+    aspect-ratio: 4 / 5;
     background-size: cover;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.478);
   }
 .nameContainer{
-    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 5%;
+    
+}
+.bottomForm {
+    display: grid;
+    grid-template-rows: 10fr 1fr 1fr;
+}
+.formCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    margin: 5%;
+}
+.uploadForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .username{
     font-family: Poppins;
     font-size: 1.5em;
-    /* border: 1px solid black;   */
     margin: 0;
     padding: 0; 
 }
 .name{
     font-family: Poppins;
     color: rgb(72, 72, 72);    
-    /* border: 1px solid black;  */
     margin: 0;
     padding: 0; 
 }
 .profileFeed{
-    /* background-color: white; */
-    /* border: 1px solid black; */
     display: grid;
     grid-template-rows: 1fr 10fr;
 }
 .recentFits{
     background-color: rgba(255, 255, 255, 0.495);
     border-radius: 10px;
-    /* border: 1px solid black; */
     margin-left: 3%;
     margin-right: 3%;
     margin-top: 3%;
@@ -160,12 +160,10 @@ body{
     align-items: center;
 }
 .receFitsTitle {
-    
     margin: 0px;
     padding: 0px;
 }
 .photoContainer {
-    /* border: 1px solid black; */
     background-color: rgba(255, 255, 255, 0.495);
     border-radius: 10px;
     margin-left: 3%;
@@ -177,13 +175,11 @@ body{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.478);
 }
 .photos{
-    /* border: 1px solid black; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
 .photo{
-    /* border: 1px solid black; */
     margin: 10%;
 }
 .photo > img {
@@ -198,10 +194,9 @@ body{
 .pageScrollContainer{
     border-top: 1px solid grey;
 }
-.right{
-    /* border: 1px solid black; */
+input[type="file"] {
+    display: none;
 }
-
 .submit {
     font-size: 1em;
     background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
@@ -213,5 +208,24 @@ body{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
     border: 2px solid rgb(75, 75, 75);
     margin-left: 10%;
-    margin-top: 3%;
+}
+.picUploadButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    background-image: linear-gradient(to bottom right, rgb(124, 79, 58), rgb(68, 20, 0));
+    color: white; 
+    font-family: Poppins;
+    width: 15vh;
+    height: 5vh;
+    border-radius: 2vh;  
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.375); 
+    border: 2px solid rgb(75, 75, 75);
+}
+.usernameCont {
+    margin-left: 5%;
+}
+.nameCont {
+    margin-left: 5%;
 }

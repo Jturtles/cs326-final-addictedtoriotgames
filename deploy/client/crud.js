@@ -1,4 +1,4 @@
-  
+// getting the user to login to the webpage route
 export async function readUser(email, password) {
     const user = JSON.stringify({email, password});
     const response = await fetch(`/login`, {
@@ -12,6 +12,7 @@ export async function readUser(email, password) {
     return data;
 }
 
+// deleting an entire user route 
 export async function deleteUser(email) {
     const user = JSON.stringify({email});
     const res = await fetch('/user/delete', {
@@ -23,6 +24,7 @@ export async function deleteUser(email) {
     });
 }
 
+// reading all the posts for the feedpage route
 export async function readAllPost() {
     const response = await fetch(`/post/all`, {
         method: 'GET',
@@ -31,6 +33,7 @@ export async function readAllPost() {
     return data;
 }
 
+// getting the user info to load their data route
 export async function getUserInfo(email){
     const user = JSON.stringify({email});
     const res = await fetch('/getUser', {

@@ -41,6 +41,7 @@ class UserServer {
     // Note: when using arrow functions, the "this" binding is lost.
     const self = this;
     
+    //route to upload pictures to the database from the user
     this.app.post('/upload', this.upload.single('upload'), async (req, res) => {
       try {
         const img = fs.readFileSync(req.file.path);
@@ -53,6 +54,7 @@ class UserServer {
       }
     });
 
+    //route to delete an entire user, delete part of our CRUD
     this.app.delete('/user/delete', async (req, res) => {
       try {
         const {email} = req.body;
@@ -63,6 +65,7 @@ class UserServer {
       }
     });
 
+    //route to get all the posts for the feed page
     this.app.get('/post/all', async (req, res) => {
       try {
         const post = await self.db.readAllPosts();
@@ -120,10 +123,12 @@ class UserServer {
       }
     });
 
+    //route to send user to feedpage
     this.app.get('/feed', (req, res) => {
       res.sendFile('client/feedPage.html', { root: this.__dirname })
     });
 
+    //route to send user to profile page
     this.app.get('/profile', (req, res) => {
       res.sendFile('client/profile.html', { root: this.__dirname })
     });
@@ -133,6 +138,7 @@ class UserServer {
       res.sendFile('client/signUp.html', { root: this.__dirname })
     );
 
+    //upload posts to user database
     this.app.post('/upload/pfp', this.upload.single('uploadpfp'), async (req, res) => {
       try {
         const img = fs.readFileSync(req.file.path);
@@ -145,7 +151,7 @@ class UserServer {
       }
     });
 
-
+    //in case of error
     this.app.get('*', (req, res) => {
       res.send('Error');
     });
